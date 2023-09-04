@@ -99,7 +99,7 @@ func DefaultRoundTripperClient(t *tls.Config, timeout int64) *http.Client {
 			return dialer.DialContext(ctx, network, addr)
 		}
 		ipv4, err := resolveIPv4(addr)
-		if err != nil {
+		if err != nil || ipv4 == "" {
 			// If DNS resolution fails, return the original address
 			return dialer.DialContext(ctx, network, addr)
 		}
@@ -127,7 +127,10 @@ func resolveIPv4(addr string) (string, error) {
 	m.SetQuestion(dns.Fqdn(url[0]), dns.TypeA)
 	m.RecursionDesired = true
 
-	config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")
+	config, err := dns.ClientConfigFromFile("/etc/resolv.conf")
+	if err != nil || len(config.Servers) < 1 {
+		return "", err
+	}
 	c := new(dns.Client)
 	r, _, err := c.Exchange(m, net.JoinHostPort(config.Servers[0], config.Port))
 	if err != nil {
