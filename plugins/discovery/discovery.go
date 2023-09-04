@@ -312,7 +312,14 @@ func (c *Discovery) processUpdate(ctx context.Context, u download.Update) {
 	c.status.SetRequest()
 
 	if u.Error != nil {
-		c.logger.Error("Discovery download failed: %v", u.Error)
+		/*
+			Code changes from STS team for FPA-1247
+			Changes made: converted error log type to debug to suppress error message posted in every fail
+		*/
+		c.logger.Debug("Discovery download failed: %v", u.Error)
+		/*
+			Code changes from STS team end here
+		*/
 		c.status.SetError(u.Error)
 		c.downloader.ClearCache()
 		return

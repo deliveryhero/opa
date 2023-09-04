@@ -476,7 +476,15 @@ func (p *Plugin) process(ctx context.Context, name string, u download.Update) {
 	p.status[name].SetRequest()
 
 	if u.Error != nil {
-		p.log(name).Error("Bundle load failed: %v", u.Error)
+		/*
+			Code changes from STS team for FPA-1247
+			Changes made: converted error log type to debug to suppress error message posted in every fail
+
+		*/
+		p.log(name).Debug("Bundle load failed: %v", u.Error)
+		/*
+			Code changes from STS team end here
+		*/
 		p.status[name].SetError(u.Error)
 		if !p.stopped {
 			etag := p.etags[name]

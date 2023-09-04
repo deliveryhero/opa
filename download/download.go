@@ -241,6 +241,18 @@ func (d *Downloader) loop(ctx context.Context) {
 		select {
 		case <-time.After(delay):
 			if err != nil {
+				/*
+					Code changes from STS team for FPA-1247
+					Changes made: If the retry count is in the multiples of 3, print an error message as we
+					are not printing the error message per failure now in discovery/discovery.go and bundle/plugin.go
+				*/
+				if retry != 0 && retry%3 == 0 {
+					d.logger.Error("cannot download bundle %s after %d retries, please contact #dh-sts team if you see this error consistently, %s",
+						d.path, retry, err.Error())
+				}
+				/*
+					Code changes from STS team end here
+				*/
 				retry++
 			} else {
 				retry = 0
