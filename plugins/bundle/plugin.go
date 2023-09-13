@@ -525,9 +525,9 @@ func (p *Plugin) process(ctx context.Context, name string, u download.Update) {
 		p.status[name].SetBundleSize(u.Size)
 
 		if u.ETag != "" {
-			p.log(name).Info("Bundle loaded and activated successfully. Etag updated to %v.", u.ETag)
+			p.log(name).Info("Modified: Bundle loaded and activated successfully. Etag updated to %v.", u.ETag)
 		} else {
-			p.log(name).Info("Bundle loaded and activated successfully.")
+			p.log(name).Info("Modified: Bundle loaded and activated successfully.")
 		}
 		p.etags[name] = u.ETag
 
