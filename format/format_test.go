@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/ast/location"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/ast/location"
 )
 
 func TestFormatNilLocation(t *testing.T) {
@@ -78,6 +78,8 @@ func TestFormatSourceError(t *testing.T) {
 }
 
 func TestFormatSource(t *testing.T) {
+	t.Setenv("EXPERIMENTAL_GENERAL_RULE_REFS", "true")
+
 	regoFiles, err := filepath.Glob("testfiles/*.rego")
 	if err != nil {
 		panic(err)

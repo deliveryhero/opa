@@ -12,12 +12,12 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	storedversion "github.com/open-policy-agent/opa/internal/version"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/storage"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	storedversion "github.com/deliveryhero/opa/internal/version"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/storage"
 )
 
 // InsertAndCompileOptions contains the input for the operation.
@@ -127,10 +127,16 @@ func LoadPaths(paths []string,
 		caps = ast.CapabilitiesForThisVersion()
 	}
 
+	// tar.gz files are automatically loaded as bundles
+	var likelyBundles, nonBundlePaths []string
+	if !asBundle {
+		likelyBundles, nonBundlePaths = splitByTarGzExt(paths)
+		paths = likelyBundles
+	}
+
 	var result LoadPathsResult
 	var err error
-
-	if asBundle {
+	if asBundle || len(likelyBundles) > 0 {
 		result.Bundles = make(map[string]*bundle.Bundle, len(paths))
 		for _, path := range paths {
 			result.Bundles[path], err = loader.NewFileLoader().
@@ -145,6 +151,9 @@ func LoadPaths(paths []string,
 				return nil, err
 			}
 		}
+	}
+
+	if len(nonBundlePaths) == 0 {
 		return &result, nil
 	}
 
@@ -152,7 +161,8 @@ func LoadPaths(paths []string,
 		WithFS(fsys).
 		WithProcessAnnotation(processAnnotations).
 		WithCapabilities(caps).
-		Filtered(paths, filter)
+		Filtered(nonBundlePaths, filter)
+
 	if err != nil {
 		return nil, err
 	}
@@ -160,6 +170,19 @@ func LoadPaths(paths []string,
 	result.Files = *files
 
 	return &result, nil
+}
+
+// splitByTarGzExt splits the paths in 2 groups. Ones with .tar.gz and another with
+// non .tar.gz extensions.
+func splitByTarGzExt(paths []string) (targzs []string, nonTargzs []string) {
+	for _, path := range paths {
+		if strings.HasSuffix(path, ".tar.gz") {
+			targzs = append(targzs, path)
+		} else {
+			nonTargzs = append(nonTargzs, path)
+		}
+	}
+	return
 }
 
 // WalkPaths reads data and policy from the given paths and returns a set of bundle directory loaders

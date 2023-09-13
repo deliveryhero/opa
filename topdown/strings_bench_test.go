@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/inmem"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/inmem"
 )
 
 func BenchmarkBulkStartsWithNaive(b *testing.B) {

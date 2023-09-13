@@ -18,19 +18,19 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/internal/compiler/wasm"
-	"github.com/open-policy-agent/opa/internal/debug"
-	"github.com/open-policy-agent/opa/internal/planner"
-	"github.com/open-policy-agent/opa/internal/ref"
-	initload "github.com/open-policy-agent/opa/internal/runtime/init"
-	"github.com/open-policy-agent/opa/internal/wasm/encoding"
-	"github.com/open-policy-agent/opa/ir"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/inmem"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/internal/compiler/wasm"
+	"github.com/deliveryhero/opa/internal/debug"
+	"github.com/deliveryhero/opa/internal/planner"
+	"github.com/deliveryhero/opa/internal/ref"
+	initload "github.com/deliveryhero/opa/internal/runtime/init"
+	"github.com/deliveryhero/opa/internal/wasm/encoding"
+	"github.com/deliveryhero/opa/ir"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/inmem"
 )
 
 const (
@@ -67,6 +67,7 @@ type Compiler struct {
 	filter                       loader.Filter              // filter to apply to file loader
 	paths                        []string                   // file paths to load. TODO(tsandall): add support for supplying readers for embedded users.
 	entrypoints                  orderedStringSet           // policy entrypoints required for optimization and certain targets
+	roots                        []string                   // optionally, bundle roots can be provided
 	useRegoAnnotationEntrypoints bool                       // allow compiler to late-bind entrypoints from annotated rules in policies.
 	optimizationLevel            int                        // how aggressive should optimization be
 	target                       string                     // target type (wasm, rego, etc.)
@@ -220,6 +221,12 @@ func (c *Compiler) WithCapabilities(capabilities *ast.Capabilities) *Compiler {
 // WithMetadata sets the additional data to be included in .manifest
 func (c *Compiler) WithMetadata(metadata *map[string]interface{}) *Compiler {
 	c.metadata = metadata
+	return c
+}
+
+// WithRoots sets the roots to include in the output bundle manifest.
+func (c *Compiler) WithRoots(r ...string) *Compiler {
+	c.roots = append(c.roots, r...)
 	return c
 }
 
@@ -453,11 +460,14 @@ func (c *Compiler) initBundle() error {
 		return nil
 	}
 
-	// TODO(tsandall): add support for controlling roots. Either the caller could
-	// supply them or the compiler could infer them based on the packages and data
-	// contents. The latter would require changes to the loader to preserve the
+	// TODO(tsandall): roots could be automatically inferred based on the packages and data
+	// contents. That would require changes to the loader to preserve the
 	// locations where base documents were mounted under data.
 	result := &bundle.Bundle{}
+	if len(c.roots) > 0 {
+		result.Manifest.Roots = &c.roots
+	}
+
 	result.Manifest.Init()
 	result.Data = load.Files.Documents
 

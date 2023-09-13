@@ -13,26 +13,26 @@ import (
 	"sync"
 	"time"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/hooks"
-	"github.com/open-policy-agent/opa/internal/ref"
-	"github.com/open-policy-agent/opa/internal/runtime"
-	"github.com/open-policy-agent/opa/internal/uuid"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/plugins/discovery"
-	"github.com/open-policy-agent/opa/plugins/logs"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/server"
-	"github.com/open-policy-agent/opa/server/types"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/topdown"
-	"github.com/open-policy-agent/opa/topdown/builtins"
-	"github.com/open-policy-agent/opa/topdown/cache"
-	"github.com/open-policy-agent/opa/topdown/print"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/hooks"
+	"github.com/deliveryhero/opa/internal/ref"
+	"github.com/deliveryhero/opa/internal/runtime"
+	"github.com/deliveryhero/opa/internal/uuid"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/plugins/discovery"
+	"github.com/deliveryhero/opa/plugins/logs"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/server"
+	"github.com/deliveryhero/opa/server/types"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/topdown"
+	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/topdown/cache"
+	"github.com/deliveryhero/opa/topdown/print"
+	"github.com/deliveryhero/opa/version"
 )
 
 // OPA represents an instance of the policy engine. OPA can be started with
@@ -239,6 +239,7 @@ func (opa *OPA) Decision(ctx context.Context, options DecisionOptions) (*Decisio
 		Input:          &options.Input,
 		NDBuiltinCache: &options.NDBCache,
 		Metrics:        options.Metrics,
+		DecisionID:     options.DecisionID,
 	}
 
 	// Only use non-deterministic builtins cache if it's available.
@@ -294,22 +295,14 @@ type DecisionOptions struct {
 	Metrics             metrics.Metrics     // specifies the metrics to use for preparing and evaluation, optional
 	Profiler            topdown.QueryTracer // specifies the profiler to use, optional
 	Instrument          bool                // if true, instrumentation will be enabled
+	DecisionID          string              // the identifier for this decision; if not set, a globally unique identifier will be generated
 }
 
 // DecisionResult contains the output of query evaluation.
 type DecisionResult struct {
-	ID         string             // provides a globally unique identifier for this decision (which is included in the decision log.)
+	ID         string             // provides the identifier for this decision (which is included in the decision log.)
 	Result     interface{}        // provides the output of query evaluation.
 	Provenance types.ProvenanceV1 // wraps the bundle build/version information
-}
-
-func newDecisionResult() (*DecisionResult, error) {
-	id, err := uuid.New(rand.Reader)
-	if err != nil {
-		return nil, err
-	}
-	result := &DecisionResult{ID: id}
-	return result, nil
 }
 
 func (opa *OPA) executeTransaction(ctx context.Context, record *server.Info, work func(state, *DecisionResult)) (*DecisionResult, error) {
@@ -318,16 +311,19 @@ func (opa *OPA) executeTransaction(ctx context.Context, record *server.Info, wor
 	}
 	record.Metrics.Timer(metrics.SDKDecisionEval).Start()
 
-	result, err := newDecisionResult()
-	if err != nil {
-		return nil, err
+	if record.DecisionID == "" {
+		id, err := uuid.New(rand.Reader)
+		if err != nil {
+			return nil, err
+		}
+		record.DecisionID = id
 	}
+
+	result := &DecisionResult{ID: record.DecisionID}
 
 	opa.mtx.Lock()
 	s := *opa.state
 	opa.mtx.Unlock()
-
-	record.DecisionID = result.ID
 
 	if record.Timestamp.IsZero() {
 		record.Timestamp = time.Now().UTC()
@@ -347,6 +343,17 @@ func (opa *OPA) executeTransaction(ctx context.Context, record *server.Info, wor
 	record.Metrics.Timer(metrics.SDKDecisionEval).Stop()
 
 	if logger := logs.Lookup(s.manager); logger != nil {
+		// Decision log masking requires the event object to be a map[string]interface{},
+		// or a []interface{}, and all internal objects referenced in the mask to be
+		// similarly generic. Convert the input AST back into a JSON-representation to
+		// ensure decision logging will work if the input Go type does not fit these requirements.
+		if record.InputAST != nil {
+			asJSON, err := ast.JSON(record.InputAST)
+			if err != nil {
+				return nil, err
+			}
+			*record.Input = asJSON
+		}
 		if err := logger.Log(ctx, record); err != nil {
 			return result, fmt.Errorf("decision log: %w", err)
 		}
@@ -364,10 +371,11 @@ func (opa *OPA) Partial(ctx context.Context, options PartialOptions) (*PartialRe
 	}
 
 	record := server.Info{
-		Timestamp: options.Now,
-		Input:     &options.Input,
-		Query:     options.Query,
-		Metrics:   options.Metrics,
+		Timestamp:  options.Now,
+		Input:      &options.Input,
+		Query:      options.Query,
+		Metrics:    options.Metrics,
+		DecisionID: options.DecisionID,
 	}
 
 	var provenance types.ProvenanceV1
@@ -437,6 +445,7 @@ type PartialOptions struct {
 	Metrics             metrics.Metrics     // specifies the metrics to use for preparing and evaluation, optional
 	Profiler            topdown.QueryTracer // specifies the profiler to use, optional
 	Instrument          bool                // if true, instrumentation will be enabled
+	DecisionID          string              // the identifier for this decision; if not set, a globally unique identifier will be generated
 }
 
 type PartialResult struct {

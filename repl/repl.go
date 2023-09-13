@@ -18,22 +18,22 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/open-policy-agent/opa/compile"
+	"github.com/deliveryhero/opa/compile"
 
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/version"
 
 	"github.com/peterh/liner"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/format"
-	"github.com/open-policy-agent/opa/internal/future"
-	pr "github.com/open-policy-agent/opa/internal/presentation"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/profiler"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/topdown"
-	"github.com/open-policy-agent/opa/topdown/lineage"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/format"
+	"github.com/deliveryhero/opa/internal/future"
+	pr "github.com/deliveryhero/opa/internal/presentation"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/profiler"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/topdown"
+	"github.com/deliveryhero/opa/topdown/lineage"
 )
 
 // REPL represents an instance of the interactive shell.

@@ -20,16 +20,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/internal/uuid"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/logging/test"
-	"github.com/open-policy-agent/opa/runtime"
-	"github.com/open-policy-agent/opa/server/types"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/internal/uuid"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/logging/test"
+	"github.com/deliveryhero/opa/runtime"
+	"github.com/deliveryhero/opa/server/types"
+	"github.com/deliveryhero/opa/util"
 )
 
 const (
-	defaultAddr = ":0" // default listening address for server, use a random open port
+	defaultAddr = "localhost:0" // default listening address for server, use a random open port
 )
 
 // NewAPIServerTestParams creates a new set of runtime.Params with enough

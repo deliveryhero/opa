@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/open-policy-agent/opa/test/e2e"
+	"github.com/deliveryhero/opa/test/e2e"
 )
 
 var testRuntime *e2e.TestRuntime
@@ -15,7 +15,8 @@ var testRuntime *e2e.TestRuntime
 func TestMain(m *testing.M) {
 	flag.Parse()
 	testServerParams := e2e.NewAPIServerTestParams()
-	testServerParams.DiagnosticAddrs = &[]string{":0"}
+	testServerParams.Addrs = &[]string{"localhost:0"}
+	testServerParams.DiagnosticAddrs = &[]string{"localhost:0"}
 
 	var err error
 	testRuntime, err = e2e.NewTestRuntimeWithOpts(e2e.TestRuntimeOpts{}, testServerParams)

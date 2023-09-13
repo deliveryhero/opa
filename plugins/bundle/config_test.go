@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/open-policy-agent/opa/plugins"
+	"github.com/deliveryhero/opa/plugins"
 
-	"github.com/open-policy-agent/opa/keys"
+	"github.com/deliveryhero/opa/keys"
 
-	"github.com/open-policy-agent/opa/bundle"
+	"github.com/deliveryhero/opa/bundle"
 
-	"github.com/ghodss/yaml"
+	"sigs.k8s.io/yaml"
 )
 
 func TestConfigValidation(t *testing.T) {

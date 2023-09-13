@@ -19,12 +19,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/test/cases"
-	"github.com/open-policy-agent/opa/types"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/wasm/sdk/opa"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/test/cases"
+	"github.com/deliveryhero/opa/types"
+	"github.com/deliveryhero/opa/util"
 )
 
 const opaRootDir = "../../../../../"

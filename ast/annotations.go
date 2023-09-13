@@ -11,8 +11,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/open-policy-agent/opa/internal/deepcopy"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/internal/deepcopy"
+	"github.com/deliveryhero/opa/util"
 )
 
 const (

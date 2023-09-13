@@ -23,35 +23,37 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/gorilla/mux"
-	"github.com/open-policy-agent/opa/internal/pathwatcher"
+	"github.com/deliveryhero/opa/internal/compiler"
+	"github.com/deliveryhero/opa/internal/pathwatcher"
+	"github.com/deliveryhero/opa/internal/ref"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
 	"go.opentelemetry.io/otel/propagation"
 	"go.uber.org/automaxprocs/maxprocs"
 
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/internal/config"
-	internal_tracing "github.com/open-policy-agent/opa/internal/distributedtracing"
-	internal_logging "github.com/open-policy-agent/opa/internal/logging"
-	"github.com/open-policy-agent/opa/internal/prometheus"
-	"github.com/open-policy-agent/opa/internal/report"
-	"github.com/open-policy-agent/opa/internal/runtime"
-	initload "github.com/open-policy-agent/opa/internal/runtime/init"
-	"github.com/open-policy-agent/opa/internal/uuid"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/plugins/discovery"
-	"github.com/open-policy-agent/opa/plugins/logs"
-	"github.com/open-policy-agent/opa/repl"
-	"github.com/open-policy-agent/opa/server"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/disk"
-	"github.com/open-policy-agent/opa/storage/inmem"
-	"github.com/open-policy-agent/opa/tracing"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/internal/config"
+	internal_tracing "github.com/deliveryhero/opa/internal/distributedtracing"
+	internal_logging "github.com/deliveryhero/opa/internal/logging"
+	"github.com/deliveryhero/opa/internal/prometheus"
+	"github.com/deliveryhero/opa/internal/report"
+	"github.com/deliveryhero/opa/internal/runtime"
+	initload "github.com/deliveryhero/opa/internal/runtime/init"
+	"github.com/deliveryhero/opa/internal/uuid"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/plugins/discovery"
+	"github.com/deliveryhero/opa/plugins/logs"
+	"github.com/deliveryhero/opa/repl"
+	"github.com/deliveryhero/opa/server"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/disk"
+	"github.com/deliveryhero/opa/storage/inmem"
+	"github.com/deliveryhero/opa/tracing"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/version"
 )
 
 var (
@@ -195,6 +197,9 @@ type Params struct {
 	// SkipBundleVerification flag controls whether OPA will verify a signed bundle
 	SkipBundleVerification bool
 
+	// SkipKnownSchemaCheck flag controls whether OPA will perform type checking on known input schemas
+	SkipKnownSchemaCheck bool
+
 	// ReadyTimeout flag controls if and for how long OPA server will wait (in seconds) for
 	// configured bundles and plugins to be activated/ready before listening for traffic.
 	// A value of 0 or less means no wait is exercised.
@@ -324,7 +329,9 @@ func NewRuntime(ctx context.Context, params Params) (*Runtime, error) {
 		return nil, fmt.Errorf("load error: %w", err)
 	}
 
-	info, err := runtime.Term(runtime.Params{Config: config})
+	isAuthorizationEnabled := params.Authorization != server.AuthorizationOff
+
+	info, err := runtime.Term(runtime.Params{Config: config, IsAuthorizationEnabled: isAuthorizationEnabled, SkipKnownSchemaCheck: params.SkipKnownSchemaCheck})
 	if err != nil {
 		return nil, err
 	}
@@ -391,6 +398,12 @@ func NewRuntime(ctx context.Context, params Params) (*Runtime, error) {
 
 	if err := manager.Init(ctx); err != nil {
 		return nil, fmt.Errorf("initialization error: %w", err)
+	}
+
+	if isAuthorizationEnabled && !params.SkipKnownSchemaCheck {
+		if err := verifyAuthorizationPolicySchema(manager); err != nil {
+			return nil, fmt.Errorf("initialization error: %w", err)
+		}
 	}
 
 	disco, err := discovery.New(manager, discovery.Factories(registeredPlugins), discovery.Metrics(metrics))
@@ -865,6 +878,15 @@ func generateDecisionID() string {
 		return ""
 	}
 	return id
+}
+
+func verifyAuthorizationPolicySchema(m *plugins.Manager) error {
+	authorizationDecisionRef, err := ref.ParseDataPath(*m.Config.DefaultAuthorizationDecision)
+	if err != nil {
+		return err
+	}
+
+	return compiler.VerifyAuthorizationPolicySchema(m.GetCompiler(), authorizationDecisionRef)
 }
 
 func init() {

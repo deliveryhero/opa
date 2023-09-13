@@ -7,7 +7,7 @@ package main
 import (
 	"os"
 
-	"github.com/open-policy-agent/opa/cmd"
+	"github.com/deliveryhero/opa/cmd"
 )
 
 func main() {

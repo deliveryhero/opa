@@ -13,8 +13,8 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/metrics"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/metrics"
 )
 
 func TestJSONSerialization(t *testing.T) {

@@ -16,18 +16,17 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
-	prom "github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/plugins/bundle"
-	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/plugins/bundle"
+	inmem "github.com/deliveryhero/opa/storage/inmem/test"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
+	"github.com/deliveryhero/opa/version"
 
-	lstat "github.com/open-policy-agent/opa/plugins/logs/status"
+	lstat "github.com/deliveryhero/opa/plugins/logs/status"
 )
 
 func TestMain(m *testing.M) {
@@ -978,7 +977,7 @@ func newTestFixture(t *testing.T, m metrics.Metrics, options ...testPluginCustom
 			]}`, ts.server.URL))
 
 	registerMock := &prometheusRegisterMock{
-		Collectors: map[prom.Collector]bool{},
+		Collectors: map[prometheus.Collector]bool{},
 	}
 	manager, err := plugins.New(managerConfig, "test-instance-id", inmem.New(), plugins.WithPrometheusRegister(registerMock))
 	if err != nil {
@@ -1105,21 +1104,21 @@ func TestPluginCustomBackend(t *testing.T) {
 }
 
 type prometheusRegisterMock struct {
-	Collectors map[prom.Collector]bool
+	Collectors map[prometheus.Collector]bool
 }
 
-func (p prometheusRegisterMock) Register(collector prom.Collector) error {
+func (p prometheusRegisterMock) Register(collector prometheus.Collector) error {
 	p.Collectors[collector] = true
 	return nil
 }
 
-func (p prometheusRegisterMock) MustRegister(collector ...prom.Collector) {
+func (p prometheusRegisterMock) MustRegister(collector ...prometheus.Collector) {
 	for _, c := range collector {
 		p.Collectors[c] = true
 	}
 }
 
-func (p prometheusRegisterMock) Unregister(collector prom.Collector) bool {
+func (p prometheusRegisterMock) Unregister(collector prometheus.Collector) bool {
 	delete(p.Collectors, collector)
 	return true
 }

@@ -11,9 +11,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/logging/test"
-	"github.com/open-policy-agent/opa/runtime"
-	"github.com/open-policy-agent/opa/test/e2e"
+	"github.com/deliveryhero/opa/logging/test"
+	"github.com/deliveryhero/opa/runtime"
+	"github.com/deliveryhero/opa/test/e2e"
 )
 
 var testRuntime *e2e.TestRuntime

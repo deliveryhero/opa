@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/types"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/types"
 )
 
 func TestCustomBuiltinIterator(t *testing.T) {

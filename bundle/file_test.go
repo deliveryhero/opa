@@ -9,10 +9,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/internal/file/archive"
+	"github.com/deliveryhero/opa/internal/file/archive"
 
-	"github.com/open-policy-agent/opa/loader/filter"
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/loader/filter"
+	"github.com/deliveryhero/opa/util/test"
 )
 
 const testReadLimit = (1024 * 1024) + 1

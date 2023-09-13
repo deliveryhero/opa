@@ -12,10 +12,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/test/authz"
-	testAuthz "github.com/open-policy-agent/opa/test/authz"
-	"github.com/open-policy-agent/opa/test/e2e"
-	"github.com/open-policy-agent/opa/util"
+	testAuthz "github.com/deliveryhero/opa/test/authz"
+	"github.com/deliveryhero/opa/test/e2e"
+	"github.com/deliveryhero/opa/util"
 )
 
 var testRuntime *e2e.TestRuntime
@@ -83,7 +82,7 @@ func runAuthzBenchmark(b *testing.B, mode testAuthz.InputMode, numPaths int) {
 		b.Fatal(err)
 	}
 
-	queryPath := strings.Replace(authz.AllowQuery, ".", "/", -1)
+	queryPath := strings.Replace(testAuthz.AllowQuery, ".", "/", -1)
 	url := testRuntime.URL() + "/v1/" + queryPath
 
 	input, expected := testAuthz.GenerateInput(profile, mode)

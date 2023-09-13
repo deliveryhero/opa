@@ -18,15 +18,15 @@ import (
 
 	"github.com/olekukonko/tablewriter"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/cover"
-	"github.com/open-policy-agent/opa/format"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/profiler"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/topdown"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/cover"
+	"github.com/deliveryhero/opa/format"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/profiler"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/topdown"
 )
 
 // DefaultProfileSortOrder is the default ordering unless something is specified in the CLI
@@ -397,6 +397,28 @@ func Raw(w io.Writer, r Output) error {
 	}
 
 	return nil
+}
+
+func Discard(w io.Writer, x interface{}) error {
+	encoder := json.NewEncoder(w)
+	encoder.SetIndent("", "  ")
+	field, ok := x.(Output)
+	if !ok {
+		return fmt.Errorf("error in converting interface to type Output")
+	}
+	bs, err := json.Marshal(field)
+	if err != nil {
+		return err
+	}
+	var rawData map[string]interface{}
+	err = json.Unmarshal(bs, &rawData)
+	if err != nil {
+		return err
+	}
+	if rawData["result"] != nil {
+		rawData["result"] = "discarded"
+	}
+	return encoder.Encode(rawData)
 }
 
 func prettyError(w io.Writer, errs OutputErrors) error {

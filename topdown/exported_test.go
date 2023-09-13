@@ -12,11 +12,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/storage"
-	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
-	"github.com/open-policy-agent/opa/test/cases"
-	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/storage"
+	inmem "github.com/deliveryhero/opa/storage/inmem/test"
+	"github.com/deliveryhero/opa/test/cases"
+	"github.com/deliveryhero/opa/topdown/builtins"
 )
 
 func TestRego(t *testing.T) {
@@ -48,6 +48,10 @@ func TestRegoWithNDBCache(t *testing.T) {
 type opt func(*Query) *Query
 
 func testRun(t *testing.T, tc cases.TestCase, opts ...opt) {
+
+	for k, v := range tc.Env {
+		t.Setenv(k, v)
+	}
 
 	ctx := context.Background()
 

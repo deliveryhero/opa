@@ -17,21 +17,21 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/ast/location"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/compile"
-	"github.com/open-policy-agent/opa/cover"
-	fileurl "github.com/open-policy-agent/opa/internal/file/url"
-	pr "github.com/open-policy-agent/opa/internal/presentation"
-	"github.com/open-policy-agent/opa/internal/runtime"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/profiler"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/topdown"
-	"github.com/open-policy-agent/opa/topdown/lineage"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/ast/location"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/compile"
+	"github.com/deliveryhero/opa/cover"
+	fileurl "github.com/deliveryhero/opa/internal/file/url"
+	pr "github.com/deliveryhero/opa/internal/presentation"
+	"github.com/deliveryhero/opa/internal/runtime"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/profiler"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/topdown"
+	"github.com/deliveryhero/opa/topdown/lineage"
+	"github.com/deliveryhero/opa/util"
 )
 
 type evalCommandParams struct {
@@ -82,6 +82,7 @@ func newEvalCommandParams() evalCommandParams {
 			evalPrettyOutput,
 			evalSourceOutput,
 			evalRawOutput,
+			evalDiscardOutput,
 		}),
 		explain:         newExplainFlag([]string{explainModeOff, explainModeFull, explainModeNotes, explainModeFails, explainModeDebug}),
 		target:          util.NewEnumFlag(compile.TargetRego, []string{compile.TargetRego, compile.TargetWasm}),
@@ -142,6 +143,7 @@ const (
 	evalPrettyOutput   = "pretty"
 	evalSourceOutput   = "source"
 	evalRawOutput      = "raw"
+	evalDiscardOutput  = "discard"
 
 	// number of profile results to return by default
 	defaultProfileLimit = 10
@@ -232,6 +234,7 @@ Set the output format with the --format flag.
     --format=pretty    : output query results in a human-readable format
     --format=source    : output partial evaluation results in a source format
     --format=raw       : output the values from query results in a scripting friendly format
+    --format=discard   : output the result field as "discarded" when non-nil
 
 Schema
 ------
@@ -394,6 +397,8 @@ func eval(args []string, params evalCommandParams, w io.Writer) (bool, error) {
 		err = pr.Source(w, result)
 	case evalRawOutput:
 		err = pr.Raw(w, result)
+	case evalDiscardOutput:
+		err = pr.Discard(w, result)
 	default:
 		err = pr.JSON(w, result)
 	}

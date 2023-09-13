@@ -11,18 +11,18 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/internal/file/archive"
-	"github.com/open-policy-agent/opa/internal/storage/mock"
+	"github.com/deliveryhero/opa/internal/file/archive"
+	"github.com/deliveryhero/opa/internal/storage/mock"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
 
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/disk"
-	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/disk"
+	inmem "github.com/deliveryhero/opa/storage/inmem/test"
 )
 
 func TestManifestStoreLifecycleSingleBundle(t *testing.T) {

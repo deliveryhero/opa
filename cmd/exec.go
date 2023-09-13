@@ -10,17 +10,17 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/open-policy-agent/opa/cmd/internal/exec"
-	"github.com/open-policy-agent/opa/internal/config"
-	internal_logging "github.com/open-policy-agent/opa/internal/logging"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/plugins/bundle"
-	"github.com/open-policy-agent/opa/plugins/discovery"
-	"github.com/open-policy-agent/opa/plugins/logs"
-	"github.com/open-policy-agent/opa/plugins/status"
-	"github.com/open-policy-agent/opa/sdk"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/cmd/internal/exec"
+	"github.com/deliveryhero/opa/internal/config"
+	internal_logging "github.com/deliveryhero/opa/internal/logging"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/plugins/bundle"
+	"github.com/deliveryhero/opa/plugins/discovery"
+	"github.com/deliveryhero/opa/plugins/logs"
+	"github.com/deliveryhero/opa/plugins/status"
+	"github.com/deliveryhero/opa/sdk"
+	"github.com/deliveryhero/opa/util"
 )
 
 func init() {
@@ -68,8 +68,9 @@ e.g., opa exec --decision /foo/bar/baz ...`,
 	addConfigOverrides(cmd.Flags(), &params.ConfigOverrides)
 	addConfigOverrideFiles(cmd.Flags(), &params.ConfigOverrideFiles)
 	cmd.Flags().StringVarP(&params.Decision, "decision", "", "", "set decision to evaluate")
-	cmd.Flags().BoolVarP(&params.FailDefined, "fail-defined", "", false, "exits with non-zero exit code on defined/non-empty result and errors")
-	cmd.Flags().BoolVarP(&params.Fail, "fail", "", false, "exits with non-zero exit code on undefined/empty result and errors")
+	cmd.Flags().BoolVarP(&params.FailDefined, "fail-defined", "", false, "exits with non-zero exit code on defined result and errors")
+	cmd.Flags().BoolVarP(&params.Fail, "fail", "", false, "exits with non-zero exit code on undefined result and errors")
+	cmd.Flags().BoolVarP(&params.FailNonEmpty, "fail-non-empty", "", false, "exits with non-zero exit code on non-empty result and errors")
 	cmd.Flags().VarP(params.LogLevel, "log-level", "l", "set log level")
 	cmd.Flags().Var(params.LogFormat, "log-format", "set log format")
 	cmd.Flags().StringVar(&params.LogTimestampFormat, "log-timestamp-format", "", "set log timestamp format (OPA_LOG_TIMESTAMP_FORMAT environment variable)")

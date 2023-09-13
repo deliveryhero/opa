@@ -25,30 +25,30 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/open-policy-agent/opa/internal/prometheus"
+	"github.com/deliveryhero/opa/internal/prometheus"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 	"go.opentelemetry.io/otel/propagation"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/config"
-	"github.com/open-policy-agent/opa/internal/distributedtracing"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/plugins"
-	pluginBundle "github.com/open-policy-agent/opa/plugins/bundle"
-	pluginStatus "github.com/open-policy-agent/opa/plugins/status"
-	"github.com/open-policy-agent/opa/server/authorizer"
-	"github.com/open-policy-agent/opa/server/identifier"
-	"github.com/open-policy-agent/opa/server/types"
-	"github.com/open-policy-agent/opa/server/writer"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/disk"
-	"github.com/open-policy-agent/opa/storage/inmem"
-	"github.com/open-policy-agent/opa/tracing"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/config"
+	"github.com/deliveryhero/opa/internal/distributedtracing"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/plugins"
+	pluginBundle "github.com/deliveryhero/opa/plugins/bundle"
+	pluginStatus "github.com/deliveryhero/opa/plugins/status"
+	"github.com/deliveryhero/opa/server/authorizer"
+	"github.com/deliveryhero/opa/server/identifier"
+	"github.com/deliveryhero/opa/server/types"
+	"github.com/deliveryhero/opa/server/writer"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/disk"
+	"github.com/deliveryhero/opa/storage/inmem"
+	"github.com/deliveryhero/opa/tracing"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
+	"github.com/deliveryhero/opa/version"
 )
 
 type tr struct {
@@ -1038,7 +1038,6 @@ func TestCompileV1Observability(t *testing.T) {
 			"timer_rego_partial_eval_ns",
 			"timer_rego_query_compile_ns",
 			"timer_rego_query_parse_ns",
-			"timer_rego_module_parse_ns",
 			"timer_server_handler_ns",
 			"counter_disk_read_keys",
 			"timer_disk_read_ns",
@@ -3512,7 +3511,7 @@ func TestStatusV1MetricsWithSystemAuthzPolicy(t *testing.T) {
 func TestQueryPostBasic(t *testing.T) {
 	f := newFixture(t)
 	f.server, _ = New().
-		WithAddresses([]string{":8182"}).
+		WithAddresses([]string{"localhost:8182"}).
 		WithStore(f.server.store).
 		WithManager(f.server.manager).
 		Init(context.Background())
@@ -4025,7 +4024,7 @@ func TestAuthorization(t *testing.T) {
 	}
 
 	server, err := New().
-		WithAddresses([]string{":8182"}).
+		WithAddresses([]string{"localhost:8182"}).
 		WithStore(store).
 		WithManager(m).
 		WithAuthorization(AuthorizationBasic).
@@ -4156,7 +4155,7 @@ allow {
 	}
 
 	server, err := New().
-		WithAddresses([]string{":8182"}).
+		WithAddresses([]string{"localhost:8182"}).
 		WithStore(store).
 		WithManager(m).
 		WithAuthorization(AuthorizationBasic).

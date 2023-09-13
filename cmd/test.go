@@ -15,22 +15,22 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/open-policy-agent/opa/internal/pathwatcher"
-	initload "github.com/open-policy-agent/opa/internal/runtime/init"
-	"github.com/open-policy-agent/opa/loader"
+	"github.com/deliveryhero/opa/internal/pathwatcher"
+	initload "github.com/deliveryhero/opa/internal/runtime/init"
+	"github.com/deliveryhero/opa/loader"
 	"github.com/spf13/cobra"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/compile"
-	"github.com/open-policy-agent/opa/cover"
-	"github.com/open-policy-agent/opa/internal/runtime"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/inmem"
-	"github.com/open-policy-agent/opa/tester"
-	"github.com/open-policy-agent/opa/topdown"
-	"github.com/open-policy-agent/opa/topdown/lineage"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/compile"
+	"github.com/deliveryhero/opa/cover"
+	"github.com/deliveryhero/opa/internal/runtime"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/inmem"
+	"github.com/deliveryhero/opa/tester"
+	"github.com/deliveryhero/opa/topdown"
+	"github.com/deliveryhero/opa/topdown/lineage"
+	"github.com/deliveryhero/opa/util"
 )
 
 const (
@@ -179,12 +179,10 @@ func runTests(ctx context.Context, txn storage.Transaction, runner *tester.Runne
 	go func() {
 		defer close(dup)
 		for tr := range ch {
-			if !tr.Pass() && !testParams.skipExitZero {
-				exitCode = 2
-			}
-			if tr.Skip && exitCode == 0 && testParams.skipExitZero {
-				// there is a skipped test, adding the flag -z exits 0 if there are no failures
-				exitCode = 0
+			if !tr.Pass() {
+				if !(tr.Skip && testParams.skipExitZero) {
+					exitCode = 2
+				}
 			}
 			tr.Trace = filterTrace(&testParams, tr.Trace)
 			dup <- tr

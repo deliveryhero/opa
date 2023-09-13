@@ -14,14 +14,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/format"
-	"github.com/open-policy-agent/opa/internal/ref"
-	"github.com/open-policy-agent/opa/ir"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/format"
+	"github.com/deliveryhero/opa/internal/ref"
+	"github.com/deliveryhero/opa/ir"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
 )
 
 func TestOrderedStringSet(t *testing.T) {
@@ -1398,6 +1398,35 @@ func TestCompilerSetMetadata(t *testing.T) {
 
 			if compiler.bundle.Manifest.Metadata["OPA version"] != "0.36.1" {
 				t.Fatal("expected metadata to be set but got:", compiler.bundle.Manifest)
+			}
+		})
+	}
+}
+
+func TestCompilerSetRoots(t *testing.T) {
+	files := map[string]string{
+		"test.rego": `package test
+
+		import data.common
+
+		x = true`,
+	}
+
+	for _, useMemoryFS := range []bool{false, true} {
+		test.WithTestFS(files, useMemoryFS, func(root string, fsys fs.FS) {
+
+			compiler := New().
+				WithFS(fsys).
+				WithPaths(root).
+				WithRoots("test")
+
+			err := compiler.Build(context.Background())
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			if len(*compiler.bundle.Manifest.Roots) != 1 || (*compiler.bundle.Manifest.Roots)[0] != "test" {
+				t.Fatal("expected roots to be set to ['test'] but got:", compiler.bundle.Manifest.Roots)
 			}
 		})
 	}

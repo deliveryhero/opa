@@ -22,8 +22,8 @@ import (
 
 	"github.com/OneOfOne/xxhash"
 
-	"github.com/open-policy-agent/opa/ast/location"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast/location"
+	"github.com/deliveryhero/opa/util"
 )
 
 var errFindNotFound = fmt.Errorf("find: not found")
@@ -1041,6 +1041,14 @@ func (ref Ref) GroundPrefix() Ref {
 	}
 
 	return prefix
+}
+
+func (ref Ref) DynamicSuffix() Ref {
+	i := ref.Dynamic()
+	if i < 0 {
+		return nil
+	}
+	return ref[i:]
 }
 
 // IsGround returns true if all of the parts of the Ref are ground.

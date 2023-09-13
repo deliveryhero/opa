@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast/internal/tokens"
+	"github.com/deliveryhero/opa/ast/internal/tokens"
 )
 
 const (
@@ -1611,6 +1611,14 @@ func TestRule(t *testing.T) {
 	assertParseErrorContains(t, "default invalid rule head builtin call", `default a = upper("foo")`, "illegal default rule (value cannot contain call)")
 	assertParseErrorContains(t, "default invalid rule head call", `default a = b`, "illegal default rule (value cannot contain var)")
 
+	assertParseErrorContains(t, "default invalid function head ref", `default f(x) = b.c.d`, "illegal default rule (value cannot contain ref)")
+	assertParseErrorContains(t, "default invalid function head call", `default f(x) = g(x)`, "illegal default rule (value cannot contain call)")
+	assertParseErrorContains(t, "default invalid function head builtin call", `default f(x) = upper("foo")`, "illegal default rule (value cannot contain call)")
+	assertParseErrorContains(t, "default invalid function head call", `default f(x) = b`, "illegal default rule (value cannot contain var)")
+	assertParseErrorContains(t, "default invalid function composite argument", `default f([x]) = 1`, "illegal default rule (arguments cannot contain array)")
+	assertParseErrorContains(t, "default invalid function number argument", `default f(1) = 1`, "illegal default rule (arguments cannot contain number)")
+	assertParseErrorContains(t, "default invalid function repeated vars", `default f(x, x) = 1`, "illegal default rule (arguments cannot be repeated x)")
+
 	assertParseError(t, "extra braces", `{ a := 1 }`)
 	assertParseError(t, "invalid rule name hyphen", `a-b = x { x := 1 }`)
 
@@ -2527,6 +2535,14 @@ else := 2
 			note: "single-value ref head with var",
 			rule: `
 a.b[x] := 1 if false
+else := 2
+`,
+			err: "else keyword cannot be used on rules with variables in head",
+		},
+		{
+			note: "single-value general ref head with var",
+			rule: `
+a.b[x].c := 1 if false
 else := 2
 `,
 			err: "else keyword cannot be used on rules with variables in head",

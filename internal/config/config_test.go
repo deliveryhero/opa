@@ -12,9 +12,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ghodss/yaml"
+	"sigs.k8s.io/yaml"
 
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/util/test"
 )
 
 func setTestEnvVar(t *testing.T, name, value string) string {

@@ -7,10 +7,10 @@ package wasm
 import (
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/planner"
-	"github.com/open-policy-agent/opa/internal/wasm/instruction"
-	"github.com/open-policy-agent/opa/internal/wasm/module"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/planner"
+	"github.com/deliveryhero/opa/internal/wasm/instruction"
+	"github.com/deliveryhero/opa/internal/wasm/module"
 )
 
 func TestCompilerHelloWorld(t *testing.T) {

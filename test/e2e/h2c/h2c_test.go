@@ -10,7 +10,7 @@ import (
 
 	"golang.org/x/net/http2"
 
-	"github.com/open-policy-agent/opa/test/e2e"
+	"github.com/deliveryhero/opa/test/e2e"
 )
 
 var testRuntime *e2e.TestRuntime
@@ -18,8 +18,8 @@ var testRuntime *e2e.TestRuntime
 func TestMain(m *testing.M) {
 	flag.Parse()
 	testServerParams := e2e.NewAPIServerTestParams()
-	testServerParams.Addrs = &[]string{":0"}
-	testServerParams.DiagnosticAddrs = &[]string{":0"}
+	testServerParams.Addrs = &[]string{"localhost:0"}
+	testServerParams.DiagnosticAddrs = &[]string{"localhost:0"}
 	testServerParams.H2CEnabled = true
 
 	var err error

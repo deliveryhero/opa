@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/util"
 )
 
 // Initialize seed for term hashing. This is intentionally placed before the
@@ -973,6 +973,12 @@ func (head *Head) Loc() *Location {
 // SetLoc sets the location on head.
 func (head *Head) SetLoc(loc *Location) {
 	head.Location = loc
+}
+
+func (head *Head) HasDynamicRef() bool {
+	pos := head.Reference.Dynamic()
+	// Ref is dynamic if it has one non-constant term that isn't the first or last term or if it's a partial set rule.
+	return pos > 0 && (pos < len(head.Reference)-1 || head.RuleKind() == MultiValue)
 }
 
 // Copy returns a deep copy of a.
