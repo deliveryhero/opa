@@ -8,8 +8,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
-	"github.com/deliveryhero/opa/internal/jwx/jwk"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jwk"
 )
 
 func TestSymmetric(t *testing.T) {

@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/util"
 )
 
 // Initialize seed for term hashing. This is intentionally placed before the

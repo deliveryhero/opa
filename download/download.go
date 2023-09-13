@@ -18,12 +18,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/deliveryhero/opa/bundle"
-	"github.com/deliveryhero/opa/logging"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/plugins"
-	"github.com/deliveryhero/opa/plugins/rest"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/bundle"
+	"github.com/open-policy-agent/opa/logging"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/plugins"
+	"github.com/open-policy-agent/opa/plugins/rest"
+	"github.com/open-policy-agent/opa/util"
 )
 
 const (

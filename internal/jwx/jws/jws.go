@@ -29,10 +29,10 @@ import (
 	"io"
 	"strings"
 
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
-	"github.com/deliveryhero/opa/internal/jwx/jwk"
-	"github.com/deliveryhero/opa/internal/jwx/jws/sign"
-	"github.com/deliveryhero/opa/internal/jwx/jws/verify"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jwk"
+	"github.com/open-policy-agent/opa/internal/jwx/jws/sign"
+	"github.com/open-policy-agent/opa/internal/jwx/jws/verify"
 )
 
 // SignLiteral generates a Signature for the given Payload and Headers, and serializes

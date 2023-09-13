@@ -5,7 +5,7 @@
 package disk
 
 import (
-	"github.com/deliveryhero/opa/storage"
+	"github.com/open-policy-agent/opa/storage"
 )
 
 var errNotFound = &storage.Error{Code: storage.NotFoundErr}

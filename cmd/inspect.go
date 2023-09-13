@@ -12,12 +12,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/bundle"
-	ib "github.com/deliveryhero/opa/internal/bundle/inspect"
-	pr "github.com/deliveryhero/opa/internal/presentation"
-	iStrs "github.com/deliveryhero/opa/internal/strings"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/bundle"
+	ib "github.com/open-policy-agent/opa/internal/bundle/inspect"
+	pr "github.com/open-policy-agent/opa/internal/presentation"
+	iStrs "github.com/open-policy-agent/opa/internal/strings"
+	"github.com/open-policy-agent/opa/util"
 
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"

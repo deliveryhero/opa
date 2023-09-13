@@ -12,10 +12,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/storage"
-	inmem "github.com/deliveryhero/opa/storage/inmem/test"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/storage"
+	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
+	"github.com/open-policy-agent/opa/util"
 )
 
 func TestEventEqual(t *testing.T) {

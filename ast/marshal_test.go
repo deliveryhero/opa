@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/util"
 )
 
 func TestTerm_MarshalJSON(t *testing.T) {

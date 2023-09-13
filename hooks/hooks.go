@@ -8,7 +8,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/deliveryhero/opa/config"
+	"github.com/open-policy-agent/opa/config"
 )
 
 // Hook is a hook to be called in some select places in OPA's operation.

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 type undo struct {

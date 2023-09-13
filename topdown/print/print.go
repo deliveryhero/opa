@@ -3,7 +3,7 @@ package print
 import (
 	"context"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 // Context provides the Hook implementation context about the print() call.

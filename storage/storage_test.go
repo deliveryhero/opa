@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/storage/inmem"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/storage/inmem"
 )
 
 func TestNonEmpty(t *testing.T) {

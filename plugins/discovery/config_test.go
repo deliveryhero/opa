@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deliveryhero/opa/keys"
+	"github.com/open-policy-agent/opa/keys"
 )
 
 func TestConfigValidation(t *testing.T) {

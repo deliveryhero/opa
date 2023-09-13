@@ -10,12 +10,12 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/deliveryhero/opa/internal/leb128"
-	"github.com/deliveryhero/opa/internal/wasm/constant"
-	"github.com/deliveryhero/opa/internal/wasm/instruction"
-	"github.com/deliveryhero/opa/internal/wasm/module"
-	"github.com/deliveryhero/opa/internal/wasm/opcode"
-	"github.com/deliveryhero/opa/internal/wasm/types"
+	"github.com/open-policy-agent/opa/internal/leb128"
+	"github.com/open-policy-agent/opa/internal/wasm/constant"
+	"github.com/open-policy-agent/opa/internal/wasm/instruction"
+	"github.com/open-policy-agent/opa/internal/wasm/module"
+	"github.com/open-policy-agent/opa/internal/wasm/opcode"
+	"github.com/open-policy-agent/opa/internal/wasm/types"
 )
 
 // ReadModule reads a binary-encoded WASM module from r.

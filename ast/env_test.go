@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/deliveryhero/opa/types"
+	"github.com/open-policy-agent/opa/types"
 )
 
 func TestInsertIntoObject(t *testing.T) {

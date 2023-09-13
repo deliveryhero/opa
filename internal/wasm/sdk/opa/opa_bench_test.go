@@ -11,10 +11,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deliveryhero/opa/internal/wasm/sdk/opa"
-	"github.com/deliveryhero/opa/internal/wasm/util"
-	"github.com/deliveryhero/opa/rego"
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa"
+	"github.com/open-policy-agent/opa/internal/wasm/util"
+	"github.com/open-policy-agent/opa/rego"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func BenchmarkWasmRego(b *testing.B) {

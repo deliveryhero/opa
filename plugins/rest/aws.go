@@ -18,8 +18,8 @@ import (
 	"time"
 
 	"github.com/go-ini/ini"
-	"github.com/deliveryhero/opa/internal/providers/aws"
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/internal/providers/aws"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 const (

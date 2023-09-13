@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func TestValidateAndInjectDefaultsVerificationConfig(t *testing.T) {

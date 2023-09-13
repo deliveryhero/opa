@@ -8,7 +8,7 @@ import (
 	"os"
 	"os/user"
 
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 // checkUserPrivileges on Linux could be running in Docker, so we check if

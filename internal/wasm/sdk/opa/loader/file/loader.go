@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/deliveryhero/opa/bundle"
-	"github.com/deliveryhero/opa/internal/wasm/sdk/opa/errors"
+	"github.com/open-policy-agent/opa/bundle"
+	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa/errors"
 
-	"github.com/deliveryhero/opa/internal/wasm/sdk/opa"
+	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa"
 )
 
 const (

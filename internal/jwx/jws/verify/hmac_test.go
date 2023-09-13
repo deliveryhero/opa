@@ -3,7 +3,7 @@ package verify
 import (
 	"testing"
 
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
 )
 
 func TestHMACVerify(t *testing.T) {

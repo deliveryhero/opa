@@ -7,15 +7,15 @@ import (
 	"sort"
 	"time"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/resolver"
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/topdown/builtins"
-	"github.com/deliveryhero/opa/topdown/cache"
-	"github.com/deliveryhero/opa/topdown/copypropagation"
-	"github.com/deliveryhero/opa/topdown/print"
-	"github.com/deliveryhero/opa/tracing"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/resolver"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/open-policy-agent/opa/topdown/cache"
+	"github.com/open-policy-agent/opa/topdown/copypropagation"
+	"github.com/open-policy-agent/opa/topdown/print"
+	"github.com/open-policy-agent/opa/tracing"
 )
 
 // QueryResultSet represents a collection of results returned by a query.

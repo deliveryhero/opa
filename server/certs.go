@@ -12,7 +12,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 func (s *Server) getCertificate(h *tls.ClientHelloInfo) (*tls.Certificate, error) {

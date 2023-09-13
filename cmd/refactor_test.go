@@ -7,9 +7,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/format"
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/format"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func TestDoMoveRenamePackage(t *testing.T) {

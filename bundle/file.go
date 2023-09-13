@@ -12,9 +12,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/deliveryhero/opa/loader/filter"
+	"github.com/open-policy-agent/opa/loader/filter"
 
-	"github.com/deliveryhero/opa/storage"
+	"github.com/open-policy-agent/opa/storage"
 )
 
 // Descriptor contains information about a file and

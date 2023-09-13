@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/internal/jwx/jwk"
-	"github.com/deliveryhero/opa/internal/jwx/jws"
-	"github.com/deliveryhero/opa/storage"
-	inmem "github.com/deliveryhero/opa/storage/inmem/test"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/internal/jwx/jwk"
+	"github.com/open-policy-agent/opa/internal/jwx/jws"
+	"github.com/open-policy-agent/opa/storage"
+	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
 )
 
 func TestParseTokenConstraints(t *testing.T) {

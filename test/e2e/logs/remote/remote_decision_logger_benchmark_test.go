@@ -16,11 +16,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/test/authz"
-	testAuthz "github.com/deliveryhero/opa/test/authz"
-	"github.com/deliveryhero/opa/test/e2e"
-	testLogs "github.com/deliveryhero/opa/test/e2e/logs"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/test/authz"
+	testAuthz "github.com/open-policy-agent/opa/test/authz"
+	"github.com/open-policy-agent/opa/test/e2e"
+	testLogs "github.com/open-policy-agent/opa/test/e2e/logs"
+	"github.com/open-policy-agent/opa/util"
 )
 
 var testRuntime *e2e.TestRuntime

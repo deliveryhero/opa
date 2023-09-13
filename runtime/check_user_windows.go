@@ -5,7 +5,7 @@
 package runtime
 
 import (
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 // checkUserPrivileges is a no-op in Windows to avoid lookups with

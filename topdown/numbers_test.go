@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func TestRandIntnZero(t *testing.T) {

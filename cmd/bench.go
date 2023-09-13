@@ -19,21 +19,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 
-	"github.com/deliveryhero/opa/server/types"
+	"github.com/open-policy-agent/opa/server/types"
 
-	"github.com/deliveryhero/opa/logging"
-	"github.com/deliveryhero/opa/runtime"
+	"github.com/open-policy-agent/opa/logging"
+	"github.com/open-policy-agent/opa/runtime"
 
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 
-	"github.com/deliveryhero/opa/compile"
-	"github.com/deliveryhero/opa/internal/presentation"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/rego"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/compile"
+	"github.com/open-policy-agent/opa/internal/presentation"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/rego"
+	"github.com/open-policy-agent/opa/util"
 )
 
 // benchmarkCommandParams are a superset of evalCommandParams

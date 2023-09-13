@@ -5,8 +5,8 @@
 package topdown
 
 import (
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/topdown/builtins"
 )
 
 func builtinBinaryAnd(_ BuiltinContext, operands []*ast.Term, iter func(*ast.Term) error) error {

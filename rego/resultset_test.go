@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/deliveryhero/opa/rego"
+	"github.com/open-policy-agent/opa/rego"
 )
 
 func TestResultSetAllowed(t *testing.T) {

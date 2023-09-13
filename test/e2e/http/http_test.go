@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/test/e2e"
+	"github.com/open-policy-agent/opa/test/e2e"
 )
 
 var testRuntime *e2e.TestRuntime

@@ -7,8 +7,8 @@ package copypropagation
 import (
 	"fmt"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/util"
 )
 
 type rankFunc func(*unionFindRoot, *unionFindRoot) (*unionFindRoot, *unionFindRoot)

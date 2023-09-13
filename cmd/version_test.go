@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/internal/report"
+	"github.com/open-policy-agent/opa/internal/report"
 )
 
 func TestGenerateCmdOutputDisableCheckFlag(t *testing.T) {

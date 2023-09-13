@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 // type compileBenchTestData struct {

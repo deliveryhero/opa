@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 // Path refers to a document in storage.

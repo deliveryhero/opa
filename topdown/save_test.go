@@ -7,7 +7,7 @@ package topdown
 import (
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func TestSaveSet(t *testing.T) {

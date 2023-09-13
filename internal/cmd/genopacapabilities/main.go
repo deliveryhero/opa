@@ -8,8 +8,8 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/types"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/types"
 )
 
 func main() {

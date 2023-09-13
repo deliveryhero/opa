@@ -9,7 +9,7 @@ package console
 import (
 	"testing"
 
-	"github.com/deliveryhero/opa/test/e2e/logs"
+	"github.com/open-policy-agent/opa/test/e2e/logs"
 )
 
 func BenchmarkRESTConsoleDecisionLogger(b *testing.B) {

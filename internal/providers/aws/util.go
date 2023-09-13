@@ -5,7 +5,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 // DoRequestWithClient is a convenience function to get the body of an http response with

@@ -10,8 +10,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/topdown"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/topdown"
 )
 
 // Cover computes and reports on coverage.

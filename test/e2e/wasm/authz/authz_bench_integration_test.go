@@ -17,16 +17,16 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/bundle"
-	"github.com/deliveryhero/opa/compile"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/test/authz"
-	testAuthz "github.com/deliveryhero/opa/test/authz"
-	"github.com/deliveryhero/opa/test/e2e"
-	"github.com/deliveryhero/opa/util"
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/bundle"
+	"github.com/open-policy-agent/opa/compile"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/test/authz"
+	testAuthz "github.com/open-policy-agent/opa/test/authz"
+	"github.com/open-policy-agent/opa/test/e2e"
+	"github.com/open-policy-agent/opa/util"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 var testRuntime *e2e.TestRuntime

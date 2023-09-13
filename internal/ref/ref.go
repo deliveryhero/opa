@@ -9,8 +9,8 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/storage"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/storage"
 )
 
 // ParseDataPath returns a ref from the slash separated path s rooted at data.

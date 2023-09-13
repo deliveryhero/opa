@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func TestUnionFindRootValue(t *testing.T) {

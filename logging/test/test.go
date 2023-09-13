@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 // LogEntry represents a log message.

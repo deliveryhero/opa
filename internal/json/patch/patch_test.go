@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/deliveryhero/opa/storage"
+	"github.com/open-policy-agent/opa/storage"
 )
 
 func TestParsePatchPathEscaped(t *testing.T) {

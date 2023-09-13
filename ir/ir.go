@@ -11,7 +11,7 @@ package ir
 import (
 	"fmt"
 
-	"github.com/deliveryhero/opa/types"
+	"github.com/open-policy-agent/opa/types"
 )
 
 type (

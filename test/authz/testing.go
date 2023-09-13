@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/util"
 )
 
 // Policy is a test rego policy for a token based authz system

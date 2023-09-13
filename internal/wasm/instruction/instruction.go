@@ -6,8 +6,8 @@
 package instruction
 
 import (
-	"github.com/deliveryhero/opa/internal/wasm/opcode"
-	"github.com/deliveryhero/opa/internal/wasm/types"
+	"github.com/open-policy-agent/opa/internal/wasm/opcode"
+	"github.com/open-policy-agent/opa/internal/wasm/types"
 )
 
 // NoImmediateArgs indicates the instruction has no immediate arguments.

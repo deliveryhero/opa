@@ -6,10 +6,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/deliveryhero/opa/cmd/internal/exec"
-	sdk_test "github.com/deliveryhero/opa/sdk/test"
-	"github.com/deliveryhero/opa/util"
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/cmd/internal/exec"
+	sdk_test "github.com/open-policy-agent/opa/sdk/test"
+	"github.com/open-policy-agent/opa/util"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func TestExecBasic(t *testing.T) {

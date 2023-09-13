@@ -21,11 +21,11 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
-	"github.com/deliveryhero/opa/internal/jwx/jwk"
-	"github.com/deliveryhero/opa/internal/jwx/jws"
-	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jwk"
+	"github.com/open-policy-agent/opa/internal/jwx/jws"
+	"github.com/open-policy-agent/opa/topdown/builtins"
 )
 
 var (

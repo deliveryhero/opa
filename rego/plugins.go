@@ -8,8 +8,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/ir"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/ir"
 )
 
 var targetPlugins = map[string]TargetPlugin{}

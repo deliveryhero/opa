@@ -1,13 +1,13 @@
 package gqlparser
 
 import (
-	"github.com/deliveryhero/opa/internal/gqlparser/ast"
-	"github.com/deliveryhero/opa/internal/gqlparser/gqlerror"
-	"github.com/deliveryhero/opa/internal/gqlparser/parser"
-	"github.com/deliveryhero/opa/internal/gqlparser/validator"
+	"github.com/open-policy-agent/opa/internal/gqlparser/ast"
+	"github.com/open-policy-agent/opa/internal/gqlparser/gqlerror"
+	"github.com/open-policy-agent/opa/internal/gqlparser/parser"
+	"github.com/open-policy-agent/opa/internal/gqlparser/validator"
 
 	// Blank import is used to load up the validator rules.
-	_ "github.com/deliveryhero/opa/internal/gqlparser/validator/rules"
+	_ "github.com/open-policy-agent/opa/internal/gqlparser/validator/rules"
 )
 
 func LoadSchema(str ...*ast.Source) (*ast.Schema, error) {

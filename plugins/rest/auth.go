@@ -23,13 +23,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
-	"github.com/deliveryhero/opa/internal/jwx/jws"
-	"github.com/deliveryhero/opa/internal/jwx/jws/sign"
-	"github.com/deliveryhero/opa/internal/providers/aws"
-	"github.com/deliveryhero/opa/internal/uuid"
-	"github.com/deliveryhero/opa/keys"
-	"github.com/deliveryhero/opa/logging"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jws"
+	"github.com/open-policy-agent/opa/internal/jwx/jws/sign"
+	"github.com/open-policy-agent/opa/internal/providers/aws"
+	"github.com/open-policy-agent/opa/internal/uuid"
+	"github.com/open-policy-agent/opa/keys"
+	"github.com/open-policy-agent/opa/logging"
 )
 
 const (

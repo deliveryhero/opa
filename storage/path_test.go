@@ -11,7 +11,7 @@ import (
 
 	"fmt"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func TestNewPathForString(t *testing.T) {

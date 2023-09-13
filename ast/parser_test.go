@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast/internal/tokens"
+	"github.com/open-policy-agent/opa/ast/internal/tokens"
 )
 
 const (

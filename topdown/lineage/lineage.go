@@ -5,7 +5,7 @@
 package lineage
 
 import (
-	"github.com/deliveryhero/opa/topdown"
+	"github.com/open-policy-agent/opa/topdown"
 )
 
 // Debug contains everything in the log.

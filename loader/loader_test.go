@@ -18,10 +18,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/bundle"
-	"github.com/deliveryhero/opa/util"
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/bundle"
+	"github.com/open-policy-agent/opa/util"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func TestLoadJSON(t *testing.T) {

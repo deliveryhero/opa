@@ -5,8 +5,8 @@
 package topdown
 
 import (
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/topdown/builtins"
 )
 
 // Helper: sets of vertices can be represented as Arrays or Sets.

@@ -15,16 +15,16 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/internal/file/archive"
+	"github.com/open-policy-agent/opa/internal/file/archive"
 
-	"github.com/deliveryhero/opa/bundle"
+	"github.com/open-policy-agent/opa/bundle"
 
 	badger "github.com/dgraph-io/badger/v3"
 
-	"github.com/deliveryhero/opa/logging"
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/util"
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/logging"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/util"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 type testRead struct {

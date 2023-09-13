@@ -8,7 +8,7 @@ package errors
 import (
 	"fmt"
 
-	"github.com/deliveryhero/opa/storage"
+	"github.com/open-policy-agent/opa/storage"
 )
 
 const ArrayIndexTypeMsg = "array index must be integer"

@@ -14,7 +14,7 @@ import (
 
 	"github.com/ghodss/yaml"
 
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func setTestEnvVar(t *testing.T, name, value string) string {

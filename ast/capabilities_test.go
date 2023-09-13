@@ -4,7 +4,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/deliveryhero/opa/util/test"
+	"github.com/open-policy-agent/opa/util/test"
 )
 
 func TestParserCatchesIllegalCapabilities(t *testing.T) {

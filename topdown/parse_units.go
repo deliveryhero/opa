@@ -10,8 +10,8 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/topdown/builtins"
 )
 
 // Binary Si unit constants are borrowed from topdown/parse_bytes

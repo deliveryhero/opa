@@ -9,10 +9,10 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/deliveryhero/opa/internal/deepcopy"
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/storage/internal/errors"
-	"github.com/deliveryhero/opa/storage/internal/ptr"
+	"github.com/open-policy-agent/opa/internal/deepcopy"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/storage/internal/errors"
+	"github.com/open-policy-agent/opa/storage/internal/ptr"
 )
 
 // transaction implements the low-level read/write operations on the in-memory

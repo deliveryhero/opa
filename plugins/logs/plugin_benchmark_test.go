@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deliveryhero/opa/plugins"
-	"github.com/deliveryhero/opa/storage"
-	inmem "github.com/deliveryhero/opa/storage/inmem/test"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/plugins"
+	"github.com/open-policy-agent/opa/storage"
+	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
+	"github.com/open-policy-agent/opa/util"
 )
 
 const largeEvent = `{

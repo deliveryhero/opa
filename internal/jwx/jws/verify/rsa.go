@@ -6,7 +6,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
 )
 
 var rsaVerifyFuncs = map[jwa.SignatureAlgorithm]rsaVerifyFunc{}

@@ -1,10 +1,10 @@
 package validator
 
 import (
-	"github.com/deliveryhero/opa/internal/gqlparser/ast"
+	"github.com/open-policy-agent/opa/internal/gqlparser/ast"
 
 	//nolint:revive // Validator rules each use dot imports for convenience.
-	. "github.com/deliveryhero/opa/internal/gqlparser/validator"
+	. "github.com/open-policy-agent/opa/internal/gqlparser/validator"
 )
 
 func init() {

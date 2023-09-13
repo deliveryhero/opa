@@ -11,10 +11,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/bundle"
-	"github.com/deliveryhero/opa/resolver/wasm"
-	"github.com/deliveryhero/opa/storage"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/bundle"
+	"github.com/open-policy-agent/opa/resolver/wasm"
+	"github.com/open-policy-agent/opa/storage"
 )
 
 // LoadWasmResolversFromStore will lookup all Wasm modules from the store along with the

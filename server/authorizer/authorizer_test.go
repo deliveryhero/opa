@@ -14,13 +14,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/server/identifier"
-	"github.com/deliveryhero/opa/server/types"
-	"github.com/deliveryhero/opa/storage/inmem"
-	"github.com/deliveryhero/opa/topdown/cache"
-	"github.com/deliveryhero/opa/topdown/print"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/server/identifier"
+	"github.com/open-policy-agent/opa/server/types"
+	"github.com/open-policy-agent/opa/storage/inmem"
+	"github.com/open-policy-agent/opa/topdown/cache"
+	"github.com/open-policy-agent/opa/topdown/print"
+	"github.com/open-policy-agent/opa/util"
 )
 
 type mockHandler struct {

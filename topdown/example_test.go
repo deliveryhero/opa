@@ -10,9 +10,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/deliveryhero/opa/ast"
-	"github.com/deliveryhero/opa/storage/inmem"
-	"github.com/deliveryhero/opa/topdown"
+	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/storage/inmem"
+	"github.com/open-policy-agent/opa/topdown"
 )
 
 func ExampleQuery_Iter() {

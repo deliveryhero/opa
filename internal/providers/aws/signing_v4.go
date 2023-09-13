@@ -17,7 +17,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func stringFromTerm(t *ast.Term) string {

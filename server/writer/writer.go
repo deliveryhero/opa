@@ -9,9 +9,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/deliveryhero/opa/server/types"
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/topdown"
+	"github.com/open-policy-agent/opa/server/types"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/topdown"
 )
 
 // HTTPStatus is used to set a specific status code

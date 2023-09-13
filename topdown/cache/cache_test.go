@@ -9,7 +9,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func TestParseCachingConfig(t *testing.T) {

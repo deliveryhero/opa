@@ -17,11 +17,11 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/deliveryhero/opa/internal/version"
-	"github.com/deliveryhero/opa/keys"
-	"github.com/deliveryhero/opa/logging"
-	"github.com/deliveryhero/opa/tracing"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/internal/version"
+	"github.com/open-policy-agent/opa/keys"
+	"github.com/open-policy-agent/opa/logging"
+	"github.com/open-policy-agent/opa/tracing"
+	"github.com/open-policy-agent/opa/util"
 )
 
 const (

@@ -16,7 +16,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deliveryhero/opa/bundle"
+	"github.com/open-policy-agent/opa/bundle"
 )
 
 func TestHTTPLoader(t *testing.T) {

@@ -18,10 +18,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/deliveryhero/opa/rego"
-	"github.com/deliveryhero/opa/test/cases"
-	"github.com/deliveryhero/opa/types"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/rego"
+	"github.com/open-policy-agent/opa/test/cases"
+	"github.com/open-policy-agent/opa/types"
+	"github.com/open-policy-agent/opa/util"
 )
 
 type params struct {

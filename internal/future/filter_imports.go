@@ -4,7 +4,7 @@
 
 package future
 
-import "github.com/deliveryhero/opa/ast"
+import "github.com/open-policy-agent/opa/ast"
 
 // FilterFutureImports filters OUT any future imports from the passed slice of
 // `*ast.Import`s.

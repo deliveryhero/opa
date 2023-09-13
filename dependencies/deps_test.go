@@ -9,7 +9,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 type testData struct {

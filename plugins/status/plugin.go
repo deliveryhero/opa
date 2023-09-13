@@ -12,14 +12,14 @@ import (
 	"net/http"
 	"reflect"
 
-	lstat "github.com/deliveryhero/opa/plugins/logs/status"
+	lstat "github.com/open-policy-agent/opa/plugins/logs/status"
 	prom "github.com/prometheus/client_golang/prometheus"
 
-	"github.com/deliveryhero/opa/logging"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/plugins"
-	"github.com/deliveryhero/opa/plugins/bundle"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/logging"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/plugins"
+	"github.com/open-policy-agent/opa/plugins/bundle"
+	"github.com/open-policy-agent/opa/util"
 )
 
 // Logger defines the interface for status plugins.

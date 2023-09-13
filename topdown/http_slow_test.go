@@ -17,7 +17,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 func TestHTTPSendTimeout(t *testing.T) {

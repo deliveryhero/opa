@@ -3,9 +3,9 @@ package parser
 import (
 	"strconv"
 
-	"github.com/deliveryhero/opa/internal/gqlparser/ast"
-	"github.com/deliveryhero/opa/internal/gqlparser/gqlerror"
-	"github.com/deliveryhero/opa/internal/gqlparser/lexer"
+	"github.com/open-policy-agent/opa/internal/gqlparser/ast"
+	"github.com/open-policy-agent/opa/internal/gqlparser/gqlerror"
+	"github.com/open-policy-agent/opa/internal/gqlparser/lexer"
 )
 
 type parser struct {

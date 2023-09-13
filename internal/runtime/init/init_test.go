@@ -14,12 +14,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deliveryhero/opa/loader"
-	"github.com/deliveryhero/opa/storage"
-	inmem "github.com/deliveryhero/opa/storage/inmem/test"
-	"github.com/deliveryhero/opa/util"
-	"github.com/deliveryhero/opa/util/test"
-	"github.com/deliveryhero/opa/version"
+	"github.com/open-policy-agent/opa/loader"
+	"github.com/open-policy-agent/opa/storage"
+	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
+	"github.com/open-policy-agent/opa/util"
+	"github.com/open-policy-agent/opa/util/test"
+	"github.com/open-policy-agent/opa/version"
 )
 
 func TestInit(t *testing.T) {

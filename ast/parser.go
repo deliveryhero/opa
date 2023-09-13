@@ -19,9 +19,9 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/deliveryhero/opa/ast/internal/scanner"
-	"github.com/deliveryhero/opa/ast/internal/tokens"
-	"github.com/deliveryhero/opa/ast/location"
+	"github.com/open-policy-agent/opa/ast/internal/scanner"
+	"github.com/open-policy-agent/opa/ast/internal/tokens"
+	"github.com/open-policy-agent/opa/ast/location"
 )
 
 // Note: This state is kept isolated from the parser so that we

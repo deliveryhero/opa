@@ -4,7 +4,7 @@ import (
 	"crypto/ecdsa"
 	"crypto/rsa"
 
-	"github.com/deliveryhero/opa/internal/jwx/jws/sign"
+	"github.com/open-policy-agent/opa/internal/jwx/jws/sign"
 )
 
 // Verifier provides a common interface for supported alg verification methods

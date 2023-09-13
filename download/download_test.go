@@ -16,11 +16,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deliveryhero/opa/bundle"
-	"github.com/deliveryhero/opa/logging"
-	"github.com/deliveryhero/opa/logging/test"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/plugins"
+	"github.com/open-policy-agent/opa/bundle"
+	"github.com/open-policy-agent/opa/logging"
+	"github.com/open-policy-agent/opa/logging/test"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/plugins"
 )
 
 func TestStartStop(t *testing.T) {

@@ -3,7 +3,7 @@ package jwk
 import (
 	"fmt"
 
-	"github.com/deliveryhero/opa/internal/jwx/jwa"
+	"github.com/open-policy-agent/opa/internal/jwx/jwa"
 )
 
 // Convenience constants for common JWK parameters

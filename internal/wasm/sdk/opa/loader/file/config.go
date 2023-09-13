@@ -7,7 +7,7 @@ package file
 import (
 	"time"
 
-	"github.com/deliveryhero/opa/internal/wasm/sdk/opa/errors"
+	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa/errors"
 )
 
 // WithFile configures the file to load the bundle from.

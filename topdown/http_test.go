@@ -26,17 +26,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deliveryhero/opa/internal/version"
-	"github.com/deliveryhero/opa/metrics"
-	"github.com/deliveryhero/opa/storage"
-	"github.com/deliveryhero/opa/topdown/builtins"
-	"github.com/deliveryhero/opa/tracing"
-	"github.com/deliveryhero/opa/util"
+	"github.com/open-policy-agent/opa/internal/version"
+	"github.com/open-policy-agent/opa/metrics"
+	"github.com/open-policy-agent/opa/storage"
+	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/open-policy-agent/opa/tracing"
+	"github.com/open-policy-agent/opa/util"
 
-	inmem "github.com/deliveryhero/opa/storage/inmem/test"
-	iCache "github.com/deliveryhero/opa/topdown/cache"
+	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
+	iCache "github.com/open-policy-agent/opa/topdown/cache"
 
-	"github.com/deliveryhero/opa/ast"
+	"github.com/open-policy-agent/opa/ast"
 )
 
 // The person Type

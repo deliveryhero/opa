@@ -1,7 +1,7 @@
 package sdk
 
 import (
-	"github.com/deliveryhero/opa/rego"
+	"github.com/open-policy-agent/opa/rego"
 )
 
 type RawMapper struct {
