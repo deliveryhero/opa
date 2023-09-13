@@ -11,6 +11,7 @@ import (
 	"io"
 	"math/big"
 	"net/url"
+	"os"
 	"regexp"
 	"sort"
 	"strconv"
@@ -96,13 +97,14 @@ func (e *parsedTermCacheItem) String() string {
 
 // ParserOptions defines the options for parsing Rego statements.
 type ParserOptions struct {
-	Capabilities       *Capabilities
-	ProcessAnnotation  bool
-	AllFutureKeywords  bool
-	FutureKeywords     []string
-	SkipRules          bool
-	JSONOptions        *JSONOptions
-	unreleasedKeywords bool // TODO(sr): cleanup
+	Capabilities           *Capabilities
+	ProcessAnnotation      bool
+	AllFutureKeywords      bool
+	FutureKeywords         []string
+	SkipRules              bool
+	JSONOptions            *JSONOptions
+	unreleasedKeywords     bool // TODO(sr): cleanup
+	generalRuleRefsEnabled bool
 }
 
 // JSONOptions defines the options for JSON operations,
@@ -140,6 +142,7 @@ func NewParser() *Parser {
 		s:  &state{},
 		po: ParserOptions{},
 	}
+	_, p.po.generalRuleRefsEnabled = os.LookupEnv("EXPERIMENTAL_GENERAL_RULE_REFS")
 	return p
 }
 
@@ -614,11 +617,17 @@ func (p *Parser) parseRules() []*Rule {
 			return nil
 		}
 
+		if len(rule.Head.Args) > 0 {
+			if !p.validateDefaultRuleArgs(&rule) {
+				return nil
+			}
+		}
+
 		rule.Body = NewBody(NewExpr(BooleanTerm(true).SetLocation(rule.Location)).SetLocation(rule.Location))
 		return []*Rule{&rule}
 	}
 
-	if usesContains && !rule.Head.Reference.IsGround() {
+	if !p.po.generalRuleRefsEnabled && usesContains && !rule.Head.Reference.IsGround() {
 		p.error(p.s.Loc(), "multi-value rules need ground refs")
 		return nil
 	}
@@ -695,7 +704,7 @@ func (p *Parser) parseRules() []*Rule {
 	}
 
 	if p.s.tok == tokens.Else {
-		if r := rule.Head.Ref(); len(r) > 1 && !r[len(r)-1].Value.IsGround() {
+		if r := rule.Head.Ref(); len(r) > 1 && !r.IsGround() {
 			p.error(p.s.Loc(), "else keyword cannot be used on rules with variables in head")
 			return nil
 		}
@@ -2173,6 +2182,38 @@ func (p *Parser) validateDefaultRuleValue(rule *Rule) bool {
 	})
 
 	vis.Walk(rule.Head.Value.Value)
+	return valid
+}
+
+func (p *Parser) validateDefaultRuleArgs(rule *Rule) bool {
+
+	valid := true
+	vars := NewVarSet()
+
+	vis := NewGenericVisitor(func(x interface{}) bool {
+		switch x := x.(type) {
+		case Var:
+			if vars.Contains(x) {
+				p.error(rule.Loc(), fmt.Sprintf("illegal default rule (arguments cannot be repeated %v)", x))
+				valid = false
+				return true
+			}
+			vars.Add(x)
+
+		case *Term:
+			switch v := x.Value.(type) {
+			case Var: // do nothing
+			default:
+				p.error(rule.Loc(), fmt.Sprintf("illegal default rule (arguments cannot contain %v)", TypeName(v)))
+				valid = false
+				return true
+			}
+		}
+
+		return false
+	})
+
+	vis.Walk(rule.Head.Args)
 	return valid
 }
 

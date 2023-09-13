@@ -1038,7 +1038,6 @@ func TestCompileV1Observability(t *testing.T) {
 			"timer_rego_partial_eval_ns",
 			"timer_rego_query_compile_ns",
 			"timer_rego_query_parse_ns",
-			"timer_rego_module_parse_ns",
 			"timer_server_handler_ns",
 			"counter_disk_read_keys",
 			"timer_disk_read_ns",
@@ -3512,7 +3511,7 @@ func TestStatusV1MetricsWithSystemAuthzPolicy(t *testing.T) {
 func TestQueryPostBasic(t *testing.T) {
 	f := newFixture(t)
 	f.server, _ = New().
-		WithAddresses([]string{":8182"}).
+		WithAddresses([]string{"localhost:8182"}).
 		WithStore(f.server.store).
 		WithManager(f.server.manager).
 		Init(context.Background())
@@ -4025,7 +4024,7 @@ func TestAuthorization(t *testing.T) {
 	}
 
 	server, err := New().
-		WithAddresses([]string{":8182"}).
+		WithAddresses([]string{"localhost:8182"}).
 		WithStore(store).
 		WithManager(m).
 		WithAuthorization(AuthorizationBasic).
@@ -4156,7 +4155,7 @@ allow {
 	}
 
 	server, err := New().
-		WithAddresses([]string{":8182"}).
+		WithAddresses([]string{"localhost:8182"}).
 		WithStore(store).
 		WithManager(m).
 		WithAuthorization(AuthorizationBasic).
