@@ -7,8 +7,8 @@ package schemas_test
 import (
 	"testing"
 
-	"github.com/open-policy-agent/opa/schemas"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/schemas"
+	"github.com/deliveryhero/opa/util"
 )
 
 func TestSchemasEmbedded(t *testing.T) {

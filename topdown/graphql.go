@@ -9,15 +9,15 @@ import (
 	"fmt"
 	"strings"
 
-	gqlast "github.com/open-policy-agent/opa/internal/gqlparser/ast"
-	gqlparser "github.com/open-policy-agent/opa/internal/gqlparser/parser"
-	gqlvalidator "github.com/open-policy-agent/opa/internal/gqlparser/validator"
+	gqlast "github.com/deliveryhero/opa/internal/gqlparser/ast"
+	gqlparser "github.com/deliveryhero/opa/internal/gqlparser/parser"
+	gqlvalidator "github.com/deliveryhero/opa/internal/gqlparser/validator"
 
 	// Side-effecting import. Triggers GraphQL library's validation rule init() functions.
-	_ "github.com/open-policy-agent/opa/internal/gqlparser/validator/rules"
+	_ "github.com/deliveryhero/opa/internal/gqlparser/validator/rules"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/topdown/builtins"
 )
 
 // Parses a GraphQL schema, and returns the GraphQL AST for the schema.

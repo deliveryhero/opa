@@ -4,8 +4,8 @@ package download
 
 import (
 	"context"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/plugins/rest"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/plugins/rest"
 )
 
 func NewOCI(Config, rest.Client, string, string) *OCIDownloader {

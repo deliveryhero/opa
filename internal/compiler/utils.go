@@ -5,9 +5,9 @@
 package compiler
 
 import (
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/schemas"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/schemas"
+	"github.com/deliveryhero/opa/util"
 )
 
 type SchemaFile string

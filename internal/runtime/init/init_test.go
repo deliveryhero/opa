@@ -16,15 +16,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/internal/file/archive"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/storage"
-	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/internal/file/archive"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/storage"
+	inmem "github.com/deliveryhero/opa/storage/inmem/test"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
+	"github.com/deliveryhero/opa/version"
 )
 
 func TestInit(t *testing.T) {

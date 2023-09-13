@@ -14,9 +14,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/types"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/types"
+	"github.com/deliveryhero/opa/util"
 )
 
 func TestOutputVarsForNode(t *testing.T) {

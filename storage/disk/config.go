@@ -10,9 +10,9 @@ import (
 	"os"
 
 	badger "github.com/dgraph-io/badger/v3"
-	"github.com/open-policy-agent/opa/config"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/config"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/util"
 )
 
 type cfg struct {
