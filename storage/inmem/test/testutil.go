@@ -5,8 +5,8 @@
 package test
 
 import (
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/inmem"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/inmem"
 )
 
 // New returns an inmem store with some common options set: opt-out of write

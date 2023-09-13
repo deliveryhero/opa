@@ -14,12 +14,12 @@ import (
 
 	"github.com/ghodss/yaml"
 
-	"github.com/open-policy-agent/opa/internal/strvals"
-	"github.com/open-policy-agent/opa/keys"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/plugins/rest"
-	"github.com/open-policy-agent/opa/tracing"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/internal/strvals"
+	"github.com/deliveryhero/opa/keys"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/plugins/rest"
+	"github.com/deliveryhero/opa/tracing"
+	"github.com/deliveryhero/opa/util"
 )
 
 // ServiceOptions stores the options passed to ParseServicesConfig

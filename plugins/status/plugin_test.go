@@ -19,15 +19,15 @@ import (
 	prom "github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/plugins/bundle"
-	inmem "github.com/open-policy-agent/opa/storage/inmem/test"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/plugins/bundle"
+	inmem "github.com/deliveryhero/opa/storage/inmem/test"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
+	"github.com/deliveryhero/opa/version"
 
-	lstat "github.com/open-policy-agent/opa/plugins/logs/status"
+	lstat "github.com/deliveryhero/opa/plugins/logs/status"
 )
 
 func TestMain(m *testing.M) {

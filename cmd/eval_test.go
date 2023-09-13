@@ -18,13 +18,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/presentation"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/topdown"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/presentation"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/topdown"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
 )
 
 func TestEvalExitCode(t *testing.T) {

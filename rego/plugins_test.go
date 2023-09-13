@@ -8,8 +8,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/ir"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/ir"
 )
 
 type testPlugin struct {

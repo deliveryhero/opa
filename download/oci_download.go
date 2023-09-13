@@ -23,12 +23,12 @@ import (
 	oraslib "oras.land/oras-go/v2"
 	"oras.land/oras-go/v2/content/oci"
 
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/plugins/rest"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/plugins/rest"
+	"github.com/deliveryhero/opa/util"
 )
 
 type OCIDownloader struct {

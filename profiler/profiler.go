@@ -9,9 +9,9 @@ import (
 	"sort"
 	"time"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/topdown"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/topdown"
 )
 
 // Profiler computes and reports on the time spent on expressions.

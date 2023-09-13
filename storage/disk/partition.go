@@ -5,7 +5,7 @@
 package disk
 
 import (
-	"github.com/open-policy-agent/opa/storage"
+	"github.com/deliveryhero/opa/storage"
 )
 
 type partitionTrie struct {

@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/util"
 )
 
 // Set represents a collection of test cases.

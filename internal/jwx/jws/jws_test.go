@@ -12,11 +12,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/internal/jwx/jwa"
-	"github.com/open-policy-agent/opa/internal/jwx/jwk"
-	"github.com/open-policy-agent/opa/internal/jwx/jws"
-	"github.com/open-policy-agent/opa/internal/jwx/jws/sign"
-	"github.com/open-policy-agent/opa/internal/jwx/jws/verify"
+	"github.com/deliveryhero/opa/internal/jwx/jwa"
+	"github.com/deliveryhero/opa/internal/jwx/jwk"
+	"github.com/deliveryhero/opa/internal/jwx/jws"
+	"github.com/deliveryhero/opa/internal/jwx/jws/sign"
+	"github.com/deliveryhero/opa/internal/jwx/jws/verify"
 )
 
 const examplePayload = `{"iss":"joe",` + "\r\n" + ` "exp":1300819380,` + "\r\n" + ` "http://example.com/is_root":true}`

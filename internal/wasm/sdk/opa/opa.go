@@ -12,14 +12,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/wasm/sdk/internal/wasm"
-	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa/errors"
-	sdk_errors "github.com/open-policy-agent/opa/internal/wasm/sdk/opa/errors"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/topdown/builtins"
-	"github.com/open-policy-agent/opa/topdown/cache"
-	"github.com/open-policy-agent/opa/topdown/print"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/wasm/sdk/internal/wasm"
+	"github.com/deliveryhero/opa/internal/wasm/sdk/opa/errors"
+	sdk_errors "github.com/deliveryhero/opa/internal/wasm/sdk/opa/errors"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/topdown/cache"
+	"github.com/deliveryhero/opa/topdown/print"
 )
 
 var errNotReady = errors.New(errors.NotReadyErr, "")

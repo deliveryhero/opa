@@ -15,9 +15,9 @@ import (
 
 	ghodss "github.com/ghodss/yaml"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/topdown/builtins"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/util"
 )
 
 func builtinJSONMarshal(_ BuiltinContext, operands []*ast.Term, iter func(*ast.Term) error) error {

@@ -24,9 +24,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/open-policy-agent/opa/internal/merge"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/internal/merge"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/util"
 )
 
 // New returns an empty in-memory store.

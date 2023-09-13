@@ -9,10 +9,10 @@ import (
 	"io"
 	"strings"
 
-	iStrs "github.com/open-policy-agent/opa/internal/strings"
+	iStrs "github.com/deliveryhero/opa/internal/strings"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/topdown/builtins"
 )
 
 const (

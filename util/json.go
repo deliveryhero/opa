@@ -13,7 +13,7 @@ import (
 
 	"github.com/ghodss/yaml"
 
-	"github.com/open-policy-agent/opa/loader/extension"
+	"github.com/deliveryhero/opa/loader/extension"
 )
 
 // UnmarshalJSON parses the JSON encoded data and stores the result in the value

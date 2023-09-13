@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/test/e2e"
+	"github.com/deliveryhero/opa/test/e2e"
 )
 
 // RunDecisionLoggerBenchmark runs a benchmark for decision logs with a

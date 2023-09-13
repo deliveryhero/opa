@@ -14,13 +14,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/compile"
-	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa"
-	wasm_util "github.com/open-policy-agent/opa/internal/wasm/util"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/compile"
+	"github.com/deliveryhero/opa/internal/wasm/sdk/opa"
+	wasm_util "github.com/deliveryhero/opa/internal/wasm/util"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/util"
 )
 
 // control dumping in this file
