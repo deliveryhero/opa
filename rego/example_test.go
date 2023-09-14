@@ -13,17 +13,17 @@ import (
 	"os"
 	"strings"
 
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/storage/disk"
-	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/storage/disk"
+	"github.com/deliveryhero/opa/topdown/builtins"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/inmem"
-	"github.com/open-policy-agent/opa/topdown"
-	"github.com/open-policy-agent/opa/types"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/rego"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/inmem"
+	"github.com/deliveryhero/opa/topdown"
+	"github.com/deliveryhero/opa/types"
+	"github.com/deliveryhero/opa/util"
 )
 
 func ExampleRego_Eval_simple() {

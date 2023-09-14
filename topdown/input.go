@@ -7,7 +7,7 @@ package topdown
 import (
 	"fmt"
 
-	"github.com/open-policy-agent/opa/ast"
+	"github.com/deliveryhero/opa/ast"
 )
 
 var errBadPath = fmt.Errorf("bad document path")

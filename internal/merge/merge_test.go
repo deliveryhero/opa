@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/util"
 )
 
 func TestMergeDocs(t *testing.T) {

@@ -10,11 +10,11 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/open-policy-agent/opa/hooks"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/plugins"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/storage/inmem"
+	"github.com/deliveryhero/opa/hooks"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/plugins"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/storage/inmem"
 )
 
 // Options contains parameters to setup and configure OPA.

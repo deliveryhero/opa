@@ -10,12 +10,12 @@ import (
 	"path"
 	"strings"
 
-	"github.com/open-policy-agent/opa/plugins"
+	"github.com/deliveryhero/opa/plugins"
 
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/download"
-	"github.com/open-policy-agent/opa/keys"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/download"
+	"github.com/deliveryhero/opa/keys"
+	"github.com/deliveryhero/opa/util"
 )
 
 // ParseConfig validates the config and injects default values. This is

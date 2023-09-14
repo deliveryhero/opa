@@ -13,9 +13,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/future"
-	"github.com/open-policy-agent/opa/types"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/future"
+	"github.com/deliveryhero/opa/types"
 )
 
 // Opts lets you control the code formatting via `AstWithOpts()`.

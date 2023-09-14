@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/logging"
+	"github.com/deliveryhero/opa/logging"
 )
 
 func TestECR(t *testing.T) {

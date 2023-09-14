@@ -14,15 +14,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/open-policy-agent/opa/keys"
-	"github.com/open-policy-agent/opa/logging"
+	"github.com/deliveryhero/opa/keys"
+	"github.com/deliveryhero/opa/logging"
 
 	"os"
 	"time"
 
-	"github.com/open-policy-agent/opa/plugins/rest"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/plugins/rest"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/version"
 )
 
 // ExternalServiceURL is the base HTTP URL for a telemetry service.

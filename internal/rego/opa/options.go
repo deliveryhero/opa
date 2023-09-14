@@ -4,11 +4,11 @@ import (
 	"io"
 	"time"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/metrics"
-	"github.com/open-policy-agent/opa/topdown/builtins"
-	"github.com/open-policy-agent/opa/topdown/cache"
-	"github.com/open-policy-agent/opa/topdown/print"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/metrics"
+	"github.com/deliveryhero/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/topdown/cache"
+	"github.com/deliveryhero/opa/topdown/print"
 )
 
 // Result holds the evaluation result.

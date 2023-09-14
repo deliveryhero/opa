@@ -18,15 +18,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/internal/report"
-	"github.com/open-policy-agent/opa/logging"
-	testLog "github.com/open-policy-agent/opa/logging/test"
-	"github.com/open-policy-agent/opa/server"
+	"github.com/deliveryhero/opa/internal/report"
+	"github.com/deliveryhero/opa/logging"
+	testLog "github.com/deliveryhero/opa/logging/test"
+	"github.com/deliveryhero/opa/server"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/storage"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/storage"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/util/test"
 )
 
 func TestRuntimeProcessWatchEvents(t *testing.T) {

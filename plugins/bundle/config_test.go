@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/open-policy-agent/opa/plugins"
+	"github.com/deliveryhero/opa/plugins"
 
-	"github.com/open-policy-agent/opa/keys"
+	"github.com/deliveryhero/opa/keys"
 
-	"github.com/open-policy-agent/opa/bundle"
+	"github.com/deliveryhero/opa/bundle"
 
 	"sigs.k8s.io/yaml"
 )

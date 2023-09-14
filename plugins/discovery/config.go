@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/open-policy-agent/opa/keys"
+	"github.com/deliveryhero/opa/keys"
 
-	"github.com/open-policy-agent/opa/bundle"
+	"github.com/deliveryhero/opa/bundle"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/download"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/download"
+	"github.com/deliveryhero/opa/util"
 )
 
 // Config represents the configuration for the discovery feature.

@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/plugins/rest"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/plugins/rest"
 	"oras.land/oras-go/v2/content/oci"
 )
 

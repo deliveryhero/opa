@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/util/test"
 )
 
 func TestParseKeysConfig(t *testing.T) {

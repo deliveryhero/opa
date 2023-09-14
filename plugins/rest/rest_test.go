@@ -31,18 +31,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/internal/jwx/jwa"
-	"github.com/open-policy-agent/opa/internal/jwx/jws"
-	"github.com/open-policy-agent/opa/internal/providers/aws"
-	"github.com/open-policy-agent/opa/keys"
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/tracing"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/internal/jwx/jwa"
+	"github.com/deliveryhero/opa/internal/jwx/jws"
+	"github.com/deliveryhero/opa/internal/providers/aws"
+	"github.com/deliveryhero/opa/keys"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/tracing"
 
-	"github.com/open-policy-agent/opa/internal/version"
-	"github.com/open-policy-agent/opa/util/test"
+	"github.com/deliveryhero/opa/internal/version"
+	"github.com/deliveryhero/opa/util/test"
 
-	testlogger "github.com/open-policy-agent/opa/logging/test"
+	testlogger "github.com/deliveryhero/opa/logging/test"
 )
 
 const keyID = "key1"

@@ -12,9 +12,9 @@ import (
 	"sort"
 	"strings"
 
-	caps "github.com/open-policy-agent/opa/capabilities"
-	"github.com/open-policy-agent/opa/internal/wasm/sdk/opa/capabilities"
-	"github.com/open-policy-agent/opa/util"
+	caps "github.com/deliveryhero/opa/capabilities"
+	"github.com/deliveryhero/opa/internal/wasm/sdk/opa/capabilities"
+	"github.com/deliveryhero/opa/util"
 )
 
 // In the compiler, we used this to check that we're OK working with ref heads.

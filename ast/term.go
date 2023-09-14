@@ -22,8 +22,8 @@ import (
 
 	"github.com/OneOfOne/xxhash"
 
-	"github.com/open-policy-agent/opa/ast/location"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast/location"
+	"github.com/deliveryhero/opa/util"
 )
 
 var errFindNotFound = fmt.Errorf("find: not found")
