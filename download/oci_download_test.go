@@ -7,14 +7,14 @@ import (
 	"context"
 	"encoding/base64"
 	"fmt"
-	"github.com/open-policy-agent/opa/bundle"
+	"github.com/deliveryhero/opa/bundle"
 	"net/http"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/keys"
-	"github.com/open-policy-agent/opa/plugins/rest"
+	"github.com/deliveryhero/opa/keys"
+	"github.com/deliveryhero/opa/plugins/rest"
 )
 
 // when changed the layer hash & size should be updated in signed.manifest

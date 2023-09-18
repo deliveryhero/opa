@@ -14,10 +14,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/ref"
-	"github.com/open-policy-agent/opa/util"
-	"github.com/open-policy-agent/opa/version"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/ref"
+	"github.com/deliveryhero/opa/util"
+	"github.com/deliveryhero/opa/version"
 )
 
 // Config represents the configuration file that OPA can be started with.

@@ -9,10 +9,10 @@ import (
 	"context"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/open-policy-agent/opa/ast"
-	initload "github.com/open-policy-agent/opa/internal/runtime/init"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/storage"
+	"github.com/deliveryhero/opa/ast"
+	initload "github.com/deliveryhero/opa/internal/runtime/init"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/storage"
 )
 
 // CreatePathWatcher creates watchers to monitor for path changes

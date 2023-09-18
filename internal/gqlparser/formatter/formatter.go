@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/open-policy-agent/opa/internal/gqlparser/ast"
+	"github.com/deliveryhero/opa/internal/gqlparser/ast"
 )
 
 type Formatter interface {

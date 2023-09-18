@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/open-policy-agent/opa/types"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/types"
+	"github.com/deliveryhero/opa/util"
 )
 
 // TypeEnv contains type info for static analysis such as type checking.

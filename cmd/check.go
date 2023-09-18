@@ -11,10 +11,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/open-policy-agent/opa/ast"
-	pr "github.com/open-policy-agent/opa/internal/presentation"
-	"github.com/open-policy-agent/opa/loader"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	pr "github.com/deliveryhero/opa/internal/presentation"
+	"github.com/deliveryhero/opa/loader"
+	"github.com/deliveryhero/opa/util"
 )
 
 type checkParams struct {

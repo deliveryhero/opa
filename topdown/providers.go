@@ -9,9 +9,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/internal/providers/aws"
-	"github.com/open-policy-agent/opa/topdown/builtins"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/internal/providers/aws"
+	"github.com/deliveryhero/opa/topdown/builtins"
 )
 
 var awsRequiredConfigKeyNames = ast.NewSet(

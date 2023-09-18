@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-policy-agent/opa/logging"
-	"github.com/open-policy-agent/opa/test/e2e"
+	"github.com/deliveryhero/opa/logging"
+	"github.com/deliveryhero/opa/test/e2e"
 	"github.com/spf13/cobra"
 )
 

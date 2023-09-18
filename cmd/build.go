@@ -14,11 +14,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/bundle"
-	"github.com/open-policy-agent/opa/compile"
-	"github.com/open-policy-agent/opa/keys"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/bundle"
+	"github.com/deliveryhero/opa/compile"
+	"github.com/deliveryhero/opa/keys"
+	"github.com/deliveryhero/opa/util"
 )
 
 const defaultPublicKeyID = "default"

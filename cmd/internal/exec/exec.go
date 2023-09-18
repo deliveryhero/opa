@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/open-policy-agent/opa/sdk"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/sdk"
+	"github.com/deliveryhero/opa/util"
 )
 
 type Params struct {

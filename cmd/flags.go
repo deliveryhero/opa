@@ -9,8 +9,8 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/util"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/util"
 )
 
 func addConfigFileFlag(fs *pflag.FlagSet, file *string) {

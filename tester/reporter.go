@@ -11,9 +11,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/open-policy-agent/opa/ast"
-	"github.com/open-policy-agent/opa/cover"
-	"github.com/open-policy-agent/opa/topdown"
+	"github.com/deliveryhero/opa/ast"
+	"github.com/deliveryhero/opa/cover"
+	"github.com/deliveryhero/opa/topdown"
 )
 
 // Reporter defines the interface for reporting test results.
