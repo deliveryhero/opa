@@ -93,8 +93,6 @@ jobs:
         include:
           - os: linux
             run: ubuntu-22.04
-            env:
-              GODEBUG: ''
           - os: darwin
             run: macos-latest
     steps:
