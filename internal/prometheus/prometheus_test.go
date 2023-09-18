@@ -136,7 +136,6 @@ func TestJSONSerialization(t *testing.T) {
 			"go_godebug_non_default_behavior_x509sha1_events_total",
 			"go_godebug_non_default_behavior_x509usefallbackroots_events_total",
 			"go_godebug_non_default_behavior_zipinsecurepath_events_total",
-			"go_godebug_non_default_behavior_tlsmaxrsasize_events_total", // added by STS team as the UT is failing
 		},
 		"SUMMARY": {
 			"go_gc_duration_seconds",
