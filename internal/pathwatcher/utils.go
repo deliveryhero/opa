@@ -8,11 +8,11 @@ package pathwatcher
 import (
 	"context"
 
+	"github.com/fsnotify/fsnotify"
 	"github.com/deliveryhero/opa/ast"
 	initload "github.com/deliveryhero/opa/internal/runtime/init"
 	"github.com/deliveryhero/opa/loader"
 	"github.com/deliveryhero/opa/storage"
-	"github.com/fsnotify/fsnotify"
 )
 
 // CreatePathWatcher creates watchers to monitor for path changes

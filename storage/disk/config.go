@@ -9,10 +9,10 @@ import (
 	"fmt"
 	"os"
 
+	badger "github.com/dgraph-io/badger/v3"
 	"github.com/deliveryhero/opa/config"
 	"github.com/deliveryhero/opa/storage"
 	"github.com/deliveryhero/opa/util"
-	badger "github.com/dgraph-io/badger/v3"
 )
 
 type cfg struct {

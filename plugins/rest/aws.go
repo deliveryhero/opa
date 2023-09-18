@@ -17,9 +17,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/go-ini/ini"
 	"github.com/deliveryhero/opa/internal/providers/aws"
 	"github.com/deliveryhero/opa/logging"
-	"github.com/go-ini/ini"
 )
 
 const (
