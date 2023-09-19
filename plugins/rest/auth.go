@@ -166,7 +166,6 @@ func (*defaultAuthPlugin) NewClient(c Config) (*http.Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	ipv4DialerEnabled = c.EnableIPV4Dialer
 	return DefaultRoundTripperClient(t, *c.ResponseHeaderTimeoutSeconds), nil
 }
 
@@ -544,6 +543,7 @@ func (ap *oauth2ClientCredentialsAuthPlugin) NewClient(c Config) (*http.Client, 
 			}
 		}
 	}
+	ipv4DialerEnabled = c.EnableIPV4Dialer
 
 	return DefaultRoundTripperClient(t, *c.ResponseHeaderTimeoutSeconds), nil
 }
