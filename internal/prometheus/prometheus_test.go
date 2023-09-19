@@ -11,7 +11,6 @@ package prometheus
 
 import (
 	"encoding/json"
-	"runtime"
 	"testing"
 
 	"github.com/deliveryhero/opa/logging"
@@ -148,10 +147,9 @@ func TestJSONSerialization(t *testing.T) {
 			"go_sched_latencies_seconds",
 		},
 	}
-	// Added by STS team to fix the UT in linux OS
-	if runtime.GOOS == "linux" {
-		exp["COUNTER"] = append(exp["COUNTER"], "go_godebug_non_default_behavior_tlsmaxrsasize_events_total")
-	}
+	// Added by STS team to fix the UT, this should get added above eventually by the upstream
+	// code as it depends upon the github action environment
+	exp["COUNTER"] = append(exp["COUNTER"], "go_godebug_non_default_behavior_tlsmaxrsasize_events_total")
 	found := 0
 	for typ, es := range exp {
 		for _, e := range es {
