@@ -64,7 +64,7 @@ type Config struct {
 		Changes made: converted error log type to debug to suppress error message posted in every fail
 	*/
 	// EnableIPV4Dialer make the dialer to use ipv4 address while reaching calling endpoints
-	EnableIPV4Dialer bool
+	EnableIPV4Dialer bool `json:"enable_ipv4_dialer,omitempty"`
 	/*
 		Code changes from STS team end here
 	*/
