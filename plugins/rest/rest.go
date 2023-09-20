@@ -59,6 +59,15 @@ type Config struct {
 	Type   string `json:"type,omitempty"`
 	keys   map[string]*keys.Config
 	logger logging.Logger
+	/*
+		Code changes from STS team for FPA-1247
+		Changes made: converted error log type to debug to suppress error message posted in every fail
+	*/
+	// EnableIPV4Only make the http client to use only the ipv4 address of a given host
+	EnableIPV4Only bool `json:"enable_ipv4_only,omitempty"`
+	/*
+		Code changes from STS team end here
+	*/
 }
 
 // Equal returns true if this client config is equal to the other.

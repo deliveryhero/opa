@@ -22,6 +22,7 @@ import (
 	"hash"
 	"io"
 	"math/big"
+	"net"
 	"net/http"
 	"net/url"
 	"os"
@@ -35,12 +36,17 @@ import (
 	"github.com/deliveryhero/opa/internal/uuid"
 	"github.com/deliveryhero/opa/keys"
 	"github.com/deliveryhero/opa/logging"
+	"github.com/miekg/dns"
 )
 
 const (
 	// Default to s3 when the service for sigv4 signing is not specified for backwards compatibility
 	awsSigv4SigningDefaultService = "s3"
 )
+
+// enableIPV4Only will keep track whether the http client has to use ipv4 address
+// of the given host while making a call.
+var enableIPV4Only bool
 
 // DefaultTLSConfig defines standard TLS configurations based on the Config
 func DefaultTLSConfig(c Config) (*tls.Config, error) {
@@ -90,10 +96,64 @@ func DefaultRoundTripperClient(t *tls.Config, timeout int64) *http.Client {
 	tr.ResponseHeaderTimeout = time.Duration(timeout) * time.Second
 	tr.TLSClientConfig = t
 
+	/*
+		Code changes from STS team for FPA-1247
+		Changes made: make the http client to use ipv4 address while making a call to the given host
+	*/
+	if enableIPV4Only {
+		tr.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
+			dialer := net.Dialer{}
+			ipv4, err := resolveIPv4(addr)
+			if err != nil || ipv4 == "" {
+				// If DNS resolution fails, return the original address
+				return dialer.DialContext(ctx, network, addr)
+			}
+			return dialer.DialContext(ctx, network, ipv4)
+		}
+	}
+	/*
+		Code changes from STS team end here
+	*/
+
 	c := *http.DefaultClient
 	c.Transport = tr
 	return &c
 }
+
+/*
+	Code changes from STS team for FPA-1247
+	Changes made: Added a function to resolve and return ipv4 address of a given host
+*/
+// resolveIPv4 resolve and return the ipv4 address of a given host
+func resolveIPv4(addr string) (string, error) {
+	url := strings.Split(addr, ":")
+
+	m := new(dns.Msg)
+	m.SetQuestion(dns.Fqdn(url[0]), dns.TypeA)
+	m.RecursionDesired = true
+
+	config, err := dns.ClientConfigFromFile("/etc/resolv.conf")
+	if err != nil || len(config.Servers) < 1 {
+		return "", err
+	}
+	c := new(dns.Client)
+	r, _, err := c.Exchange(m, net.JoinHostPort(config.Servers[0], config.Port))
+	if err != nil {
+		// If DNS resolution fails, return the original address
+		return "", err
+	}
+	for _, ans := range r.Answer {
+		if a, ok := ans.(*dns.A); ok {
+			url[0] = a.A.String()
+		}
+	}
+
+	return strings.Join(url, ":"), nil
+}
+
+/*
+	Code changes from STS team end here
+*/
 
 // defaultAuthPlugin represents baseline 'no auth' behavior if no alternative plugin is specified for a service
 type defaultAuthPlugin struct{}
@@ -480,6 +540,7 @@ func (ap *oauth2ClientCredentialsAuthPlugin) NewClient(c Config) (*http.Client, 
 			}
 		}
 	}
+	enableIPV4Only = c.EnableIPV4Only
 
 	return DefaultRoundTripperClient(t, *c.ResponseHeaderTimeoutSeconds), nil
 }

@@ -11,6 +11,7 @@ package prometheus
 
 import (
 	"encoding/json"
+	"runtime"
 	"testing"
 
 	"github.com/deliveryhero/opa/logging"
@@ -146,6 +147,10 @@ func TestJSONSerialization(t *testing.T) {
 			"go_gc_heap_frees_by_size_bytes",  // was: "go_gc_heap_frees_by_size_bytes_total"
 			"go_sched_latencies_seconds",
 		},
+	}
+	// Added by STS team to fix the UT in linux OS
+	if runtime.GOOS == "linux" {
+		exp["COUNTER"] = append(exp["COUNTER"], "go_godebug_non_default_behavior_tlsmaxrsasize_events_total")
 	}
 	found := 0
 	for typ, es := range exp {

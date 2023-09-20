@@ -2,6 +2,10 @@
 
 [![Build Status](https://github.com/open-policy-agent/opa/workflows/Post%20Merge/badge.svg?branch=main)](https://github.com/open-policy-agent/opa/actions) [![Go Report Card](https://goreportcard.com/badge/open-policy-agent/opa)](https://goreportcard.com/report/open-policy-agent/opa) [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1768/badge)](https://bestpractices.coreinfrastructure.org/projects/1768) [![Netlify Status](https://api.netlify.com/api/v1/badges/4a0a092a-8741-4826-a28f-826d4a576cab/deploy-status)](https://app.netlify.com/sites/openpolicyagent/deploys)
 
+## *** Changes on forked reposiotry - Start ***
+Please check [this document](https://confluence.deliveryhero.com/x/u7frI) on the changes made to this repository as well as for the steps needed to follow for keeping this repository upto date with the upstream repository.
+## *** Changes on forked reposiotry - End ***
+
 Open Policy Agent (OPA) is an open source, general-purpose policy engine that enables unified, context-aware policy enforcement across the entire stack.
 
 OPA is proud to be a graduated project in the [Cloud Native Computing Foundation](https://cncf.io) (CNCF) landscape. For details read the CNCF [announcement](https://www.cncf.io/announcements/2021/02/04/cloud-native-computing-foundation-announces-open-policy-agent-graduation/).
