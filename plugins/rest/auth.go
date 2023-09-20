@@ -98,7 +98,7 @@ func DefaultRoundTripperClient(t *tls.Config, timeout int64) *http.Client {
 
 	/*
 		Code changes from STS team for FPA-1247
-		Changes made: converted error log type to debug to suppress error message posted in every fail
+		Changes made: make the http client to use ipv4 address while making a call to the given host
 	*/
 	if enableIPV4Only {
 		tr.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
@@ -122,9 +122,9 @@ func DefaultRoundTripperClient(t *tls.Config, timeout int64) *http.Client {
 
 /*
 	Code changes from STS team for FPA-1247
-	Changes made: Added a function to resolve and return ipv4 address for a given URL
+	Changes made: Added a function to resolve and return ipv4 address of a given host
 */
-// resolveIPv4 resolve an address to IPv4 address
+// resolveIPv4 resolve and return the ipv4 address of a given host
 func resolveIPv4(addr string) (string, error) {
 	url := strings.Split(addr, ":")
 
