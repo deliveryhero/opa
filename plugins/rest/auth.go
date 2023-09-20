@@ -44,7 +44,9 @@ const (
 	awsSigv4SigningDefaultService = "s3"
 )
 
-var ipv4DialerEnabled bool
+// enableIPV4Only will keep track whether the http client has to use ipv4 address
+// of the given host while making a call.
+var enableIPV4Only bool
 
 // DefaultTLSConfig defines standard TLS configurations based on the Config
 func DefaultTLSConfig(c Config) (*tls.Config, error) {
@@ -98,19 +100,14 @@ func DefaultRoundTripperClient(t *tls.Config, timeout int64) *http.Client {
 		Code changes from STS team for FPA-1247
 		Changes made: converted error log type to debug to suppress error message posted in every fail
 	*/
-	if ipv4DialerEnabled {
+	if enableIPV4Only {
 		tr.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
 			dialer := net.Dialer{}
-			if !strings.Contains(addr, "sts") {
-				// if the URL is not STS, use the original address
-				return dialer.DialContext(ctx, network, addr)
-			}
 			ipv4, err := resolveIPv4(addr)
 			if err != nil || ipv4 == "" {
 				// If DNS resolution fails, return the original address
 				return dialer.DialContext(ctx, network, addr)
 			}
-
 			return dialer.DialContext(ctx, network, ipv4)
 		}
 	}
@@ -543,7 +540,7 @@ func (ap *oauth2ClientCredentialsAuthPlugin) NewClient(c Config) (*http.Client, 
 			}
 		}
 	}
-	ipv4DialerEnabled = c.EnableIPV4Dialer
+	enableIPV4Only = c.EnableIPV4Only
 
 	return DefaultRoundTripperClient(t, *c.ResponseHeaderTimeoutSeconds), nil
 }
